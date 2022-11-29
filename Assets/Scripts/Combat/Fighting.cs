@@ -152,7 +152,7 @@ namespace RPG.Combat
 
 
 
-                target.TakeDamage(calculatedDamage, gameObject);
+                target.TakeDamage(calculatedDamage);
   
         }
 

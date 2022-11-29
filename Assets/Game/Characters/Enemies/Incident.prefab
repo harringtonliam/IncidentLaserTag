@@ -152,6 +152,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
         type: 2}
+    - target: {fileID: 8990283146278021007, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3ace2be7f368e42a8e7f2401fec076, type: 3}
 --- !u!4 &1279543157077321995 stripped

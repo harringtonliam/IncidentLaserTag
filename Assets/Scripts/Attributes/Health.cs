@@ -37,6 +37,8 @@ namespace RPG.Attributes
         }
 
 
+
+
         public float GetPercentage()
         {
             return ( healthPoints / GetMaxHealthPoints()) * 100;
@@ -49,7 +51,7 @@ namespace RPG.Attributes
 
         }
 
-        public void TakeDamage(float damage, GameObject instigator)
+        public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
 
@@ -61,9 +63,8 @@ namespace RPG.Attributes
             if (healthPoints <= 0)
             {
                 Die();
-
             }
-            else if (instigator.tag == "Player")
+            else 
             {
                 takeDamage.Invoke(damage);
             }
@@ -112,6 +113,12 @@ namespace RPG.Attributes
                 capsuleCollider.height = capsuleCollider.height / 10f;
                 capsuleCollider.center = capsuleCollider.center / 4f;
             }
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            Debug.Log("OnParticleCollision " + gameObject.name);
+            TakeDamage(1f);
         }
 
 
