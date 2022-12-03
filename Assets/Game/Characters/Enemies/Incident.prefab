@@ -152,6 +152,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
         type: 2}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 367587311890682651}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Aggrevate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RPG.Control.AIControler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8990283146278021007, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_CollisionDetection
@@ -159,6 +194,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3ace2be7f368e42a8e7f2401fec076, type: 3}
+--- !u!114 &367587311890682651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+    type: 3}
+  m_PrefabInstance: {fileID: 5707345033483089292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004f6812fc49fb948b3d33b825fc5599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1279543157077321995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6842456200856558727, guid: fa3ace2be7f368e42a8e7f2401fec076,
