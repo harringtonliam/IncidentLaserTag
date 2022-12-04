@@ -187,5 +187,6 @@ MonoBehaviour:
   timeBetweenAttacks: 1.5
   rightHandTransform: {fileID: 0}
   leftHandTransform: {fileID: 0}
-  defaultWeaponConfig: {fileID: 0}
+  defaultWeaponConfig: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
+    type: 2}
   target: {fileID: 0}
