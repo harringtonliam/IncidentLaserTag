@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 1694703418873931435}
   - component: {fileID: 8718561166362910187}
   - component: {fileID: 3363537518180081402}
+  - component: {fileID: 3970575773896959701}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -387,6 +388,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   healthPoints: 10
+--- !u!114 &3970575773896959701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642633469721194632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa78c44b35542cf47bf7f469f9287579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3578095225501124161
 PrefabInstance:
   m_ObjectHideFlags: 0

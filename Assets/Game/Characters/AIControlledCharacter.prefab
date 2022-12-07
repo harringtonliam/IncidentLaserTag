@@ -190,3 +190,17 @@ MonoBehaviour:
   defaultWeaponConfig: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
     type: 2}
   target: {fileID: 0}
+--- !u!114 &-1788435076821689885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842456200856558725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5560d9330cd344408940dae3f2c49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1
+  scoreType: 0
