@@ -121,14 +121,6 @@ namespace RPG.Attributes
             TakeDamage(1f);
         }
 
-
-
-
-
-
-
-
-
         public object CaptureState()
         {
             return healthPoints;
