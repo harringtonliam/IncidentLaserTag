@@ -387,7 +387,7 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
-  healthPoints: 10
+  maxHealthPoints: 100
 --- !u!114 &3970575773896959701
 MonoBehaviour:
   m_ObjectHideFlags: 0

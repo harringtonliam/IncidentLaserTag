@@ -7,10 +7,8 @@ namespace RPG.Combat
     public enum AmmunitionType
     {
             None,
-            GrenadeLauncher,
-            Flamethrower,
-            Pistol,
-            Rifle,
+            LaserPistol,
+            LaserRifle,
             Shotgun
     }
 }

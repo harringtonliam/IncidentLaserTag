@@ -11,16 +11,13 @@ namespace RPG.Attributes
     {
         [SerializeField] UnityEvent<float> takeDamage;
         [SerializeField] UnityEvent onDie;
-        [SerializeField] float healthPoints = 10f;
+        [SerializeField] float maxHealthPoints = 10f;
 
         public event Action healthUpdated;
 
-        string characterName;
-
-
-
 
         bool isDead = false;
+        float healthPoints;
 
         public bool IsDead { get { return isDead; } }
 
@@ -30,13 +27,12 @@ namespace RPG.Attributes
 
         void Start()
         {
+            healthPoints = maxHealthPoints;
             if (healthUpdated != null)
             {
                 healthUpdated();
             }
         }
-
-
 
 
         public float GetPercentage()
@@ -47,7 +43,7 @@ namespace RPG.Attributes
         public float GetMaxHealthPoints()
         {
 
-            return healthPoints;
+            return maxHealthPoints;
 
         }
 
