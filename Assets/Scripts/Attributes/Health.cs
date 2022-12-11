@@ -111,11 +111,6 @@ namespace RPG.Attributes
             }
         }
 
-        private void OnParticleCollision(GameObject other)
-        {
-            Debug.Log("OnParticleCollision " + gameObject.name);
-            TakeDamage(1f);
-        }
 
         public object CaptureState()
         {

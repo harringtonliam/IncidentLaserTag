@@ -94,6 +94,20 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!114 &-1788435076821689885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842456200856558725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5560d9330cd344408940dae3f2c49c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1
+  scoreType: 0
 --- !u!114 &3468751215632089042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,31 +149,6 @@ MonoBehaviour:
   patrolSpeedFraction: 0.2
   shoutDistance: 5
   combatTargetGameObject: {fileID: 0}
---- !u!114 &5505067742112198593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6842456200856558725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008468de8aeb0694eb027d7a6cd36cb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dockedItems:
-  - weaponConfig: {fileID: 0}
-    number: 0
-    isActive: 0
-  - weaponConfig: {fileID: 0}
-    number: 0
-    isActive: 0
-  - weaponConfig: {fileID: 0}
-    number: 0
-    isActive: 0
-  - weaponConfig: {fileID: 0}
-    number: 0
-    isActive: 0
 --- !u!114 &6514822405935755388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,17 +179,3 @@ MonoBehaviour:
   defaultWeaponConfig: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
     type: 2}
   target: {fileID: 0}
---- !u!114 &-1788435076821689885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6842456200856558725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5560d9330cd344408940dae3f2c49c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 1
-  scoreType: 0

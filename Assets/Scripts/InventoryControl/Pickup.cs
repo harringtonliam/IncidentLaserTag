@@ -80,6 +80,16 @@ namespace RPG.InventoryControl
             return true;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.tag != "Player")  return;
+
+            Debug.Log("Ammo pickup triggered");
+
+
+            
+        }
+
 
 
     }

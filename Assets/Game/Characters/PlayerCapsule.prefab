@@ -85,6 +85,8 @@ GameObject:
   - component: {fileID: 8718561166362910187}
   - component: {fileID: 3363537518180081402}
   - component: {fileID: 3970575773896959701}
+  - component: {fileID: 7363055897513582681}
+  - component: {fileID: 721205148173552412}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -99,7 +101,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5642633469721194632}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.210217, y: 8.786317, z: -23.948788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -400,6 +402,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa78c44b35542cf47bf7f469f9287579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7363055897513582681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642633469721194632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008468de8aeb0694eb027d7a6cd36cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dockedItems:
+  - weaponConfig: {fileID: 0}
+    number: 0
+    isActive: 0
+  - weaponConfig: {fileID: 0}
+    number: 0
+    isActive: 0
+  - weaponConfig: {fileID: 0}
+    number: 0
+    isActive: 0
+--- !u!114 &721205148173552412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642633469721194632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b50205a0917af64498ef50e043d8450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dockedItems:
+  - ammunition: {fileID: 0}
+    number: 0
+  - ammunition: {fileID: 0}
+    number: 0
+  - ammunition: {fileID: 0}
+    number: 0
 --- !u!1001 &3578095225501124161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +510,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3538874435284914113, guid: 3efbf0ef9b658484696585363c5520be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648256994648176269, guid: 3efbf0ef9b658484696585363c5520be,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648256994648176269, guid: 3efbf0ef9b658484696585363c5520be,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005427375973724767, guid: 3efbf0ef9b658484696585363c5520be,
+        type: 3}
+      propertyPath: firingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 859c21557330ada44bce48a73df431b9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3efbf0ef9b658484696585363c5520be, type: 3}
 --- !u!4 &2027598626957947752 stripped

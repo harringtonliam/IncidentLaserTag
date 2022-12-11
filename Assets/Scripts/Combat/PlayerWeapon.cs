@@ -2,73 +2,95 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Attributes;
+
 namespace RPG.Combat
 {
-    public class PlayerWeapon : MonoBehaviour
+    public class PlayerWeapon : Weapon
     {
-        [SerializeField] GameObject laserVFX;
-        [SerializeField] AudioSource audioSource;
-        [SerializeField] int weaponDamage = 1;
-        [SerializeField] float weaponFiringPeriod = 0.1f;
-        [SerializeField] int weaponAmmo = 1000;
-        [SerializeField] AudioClip weaponSFX;
+
+        [SerializeField] Camera FPCamera;
+        [SerializeField] float range = 100f;
+        [SerializeField] int damage = 10;
+        [SerializeField] ParticleSystem muzzleFlash;
+        [SerializeField] AudioClip firingSound;
+        [SerializeField] GameObject hitVFX;
+        //[SerializeField] Ammo ammoSlot;
+        //[SerializeField] AmmoType ammoType;
+        [SerializeField] float timeBetweenShots = 0.5f;
+
+        bool canShoot = true;
 
 
-        Coroutine weaponFireCoroutine;
-
-        public int WeaponDamage { get { return weaponDamage; } }
-
-
-        // Start is called before the first frame update
-        void Start()
+        private void OnEnable()
         {
-        
+            canShoot = true;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && canShoot)
             {
-                SetLaserActive(true);
-                weaponFireCoroutine = StartCoroutine(FireWeaponContinuously());
+                StartCoroutine(Shoot());
             }
-            else if (Input.GetButtonUp("Fire1"))
+
+        }
+
+        private IEnumerator Shoot()
+        {
+            canShoot = false;
+            //TODO: Add ammunition
+            //if (ammoSlot.GetAmmoAmount(ammoType) > 0)
+            //{
+            PlayMuzzleFlash();
+            PlayFiringSound();
+            ProcessRayCast();
+            //ammoSlot.DecreaseAmmoAmount(ammoType);
+            //}
+            yield return new WaitForSeconds(timeBetweenShots);
+            canShoot = true;
+
+        }
+
+        private void PlayFiringSound()
+        {
+            if (firingSound != null)
             {
-                SetLaserActive(false);
-                StopCoroutine(weaponFireCoroutine);
+                AudioSource.PlayClipAtPoint(firingSound, transform.position);
+            }
+        }
+
+        private void PlayMuzzleFlash()
+        {
+            if (muzzleFlash != null)
+            {
+                muzzleFlash.Play();
+            }
+        }
+
+        private void ProcessRayCast()
+        {
+            Debug.Log("ProcessRayCast   ");
+            RaycastHit hit;
+            bool raycastForward = Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range);
+
+            if (raycastForward)
+            {
+                CreateHitImpact(hit);
+                Health target = hit.transform.GetComponent<Health>();
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                }
 
             }
         }
 
-
-        private void SetLaserActive(bool activate)
+        private void CreateHitImpact(RaycastHit hit)
         {
-            var emissionModule = laserVFX.GetComponent<ParticleSystem>().emission;
-            emissionModule.enabled = activate;
-        }
-
-        IEnumerator FireWeaponContinuously()
-        {
-            while (true)
-            {
-                if (weaponAmmo > 0)
-                {
-                    weaponAmmo--;
-
-                    if (!audioSource.isPlaying)
-                    {
-                        audioSource.PlayOneShot(weaponSFX);
-                    }
-                }
-                else
-                {
-                    SetLaserActive(false);
-                }
-                yield return new WaitForSeconds(weaponFiringPeriod);
-
-            }
-
+            if (hitVFX == null) return;
+            GameObject hitEffect = Instantiate(hitVFX, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(hitEffect, 0.5f);
         }
 
 
