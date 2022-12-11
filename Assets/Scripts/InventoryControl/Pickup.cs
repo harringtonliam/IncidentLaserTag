@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Control;
+using RPG.Combat;
 
 namespace RPG.InventoryControl
 {
@@ -18,10 +19,12 @@ namespace RPG.InventoryControl
         public InventoryItem InventoryItem { get { return inventoryItem; } }
         public int NumberOfItems { get { return numberOfItems; } }
 
+        GameObject player;
+
 
         void Awake()
         {
-            var player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
             inventory = player.GetComponent<Inventory>();
         }
 
@@ -38,7 +41,20 @@ namespace RPG.InventoryControl
 
         public void PickupItem()
         {
-            bool slotFoundOk = inventory.AddToFirstEmptySlot(inventoryItem, numberOfItems);
+            bool slotFoundOk = true;
+            Ammunition ammunitionItem = (Ammunition)inventoryItem;
+
+
+            if (ammunitionItem != null)
+            {
+                Debug.Log("adding ammo to slot");
+                slotFoundOk = player.GetComponent<AmmunitionStore>().AddToFirstEmptySlot(ammunitionItem, numberOfItems);
+            }
+            else
+            {
+                slotFoundOk = inventory.AddToFirstEmptySlot(inventoryItem, numberOfItems);
+            }
+
             if (slotFoundOk)
             {
                 Destroy(gameObject);
@@ -85,9 +101,7 @@ namespace RPG.InventoryControl
             if(other.tag != "Player")  return;
 
             Debug.Log("Ammo pickup triggered");
-
-
-            
+            PickupItem();
         }
 
 

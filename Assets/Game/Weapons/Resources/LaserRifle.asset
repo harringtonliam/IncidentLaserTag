@@ -10,25 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a97138aaf702dd04fb324744a750598d, type: 3}
-  m_Name: LaserPistol
+  m_Name: LaserRifle
   m_EditorClassIdentifier: 
-  itemID: 65615160-5a26-430a-9b40-44a7b630f20e
-  displayName: Laser Pistol
-  description: Laser Pistol
+  itemID: 68548f6b-1214-425f-a640-91580f481309
+  displayName: Laser Rifle
+  description: Laser Rifle
   icon: {fileID: 0}
   pickup: {fileID: 0}
   isStackable: 0
-  maxNumberInStack: 1
+  maxNumberInStack: 20
   allowedEquipLocation: 3
-  weaponOverrideController: {fileID: 22100000, guid: df85e93bca28749498c3b9c4065f22f0,
-    type: 2}
-  equipedPrefab: {fileID: 9005427375973724767, guid: 3efbf0ef9b658484696585363c5520be,
-    type: 3}
-  ammunitionType: 1
-  weaponDamage: 5
+  weaponOverrideController: {fileID: 0}
+  equipedPrefab: {fileID: 0}
+  ammunitionType: 0
+  weaponDamage: 10
   weaponDamageAdditiveBonus: 0
   weaponToHitBonus: 0
   percentageBonus: 0
-  weaponRange: 50
+  weaponRange: 100
   isRightHanded: 1
   isRangedWeapon: 1

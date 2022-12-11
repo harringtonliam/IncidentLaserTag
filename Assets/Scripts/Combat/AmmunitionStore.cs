@@ -42,6 +42,34 @@ namespace RPG.Combat
         }
 
 
+        public bool AddToFirstEmptySlot(Ammunition item, int number)
+        {
+            int ammoSlotIndex = FindAmmunitionType(item.AmmunitionType);
+            if (ammoSlotIndex == -1)
+            {
+                for (int i = 0; i < dockedItems.Length; i++)
+                {
+                    if (dockedItems[i].ammunition == null)
+                    {
+                        Debug.Log("found empty ammo slot");
+                        ammoSlotIndex = i;
+                        break;
+                    }
+                }
+            }
+            Debug.Log("ammo slot index " + ammoSlotIndex);
+
+            if (ammoSlotIndex >= 0 && ammoSlotIndex < dockedItems.Length)
+            {
+                AddAction(item, ammoSlotIndex, number);
+                return true;
+            }
+            else
+            { 
+                return false;
+            }
+        }
+
         public void AddAction(InventoryItem item, int index, int number)
         {
             if (object.ReferenceEquals(item, dockedItems[index].ammunition))

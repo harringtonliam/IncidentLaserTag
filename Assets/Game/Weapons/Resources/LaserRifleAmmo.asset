@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8043a30be858ca9498c23e064e9dc87d, type: 3}
-  m_Name: LaserPistolAmmo
+  m_Name: LaserRifleAmmo
   m_EditorClassIdentifier: 
-  itemID: ac55b395-95ed-4746-a1bd-3a381a30500f
-  displayName: Laser Pistol Ammo
-  description: Holds rounds for a laser pistol
+  itemID: f2b5b84d-2214-43a6-b413-cabbc1ae171a
+  displayName: ' Laser Rifle Ammo'
+  description: Holds rounds for a laser refle
   icon: {fileID: 0}
-  pickup: {fileID: 7864711616720041944, guid: 96c4830cf6e7f944f9fe91cfdb16c77e, type: 3}
-  isStackable: 1
+  pickup: {fileID: 0}
+  isStackable: 0
   maxNumberInStack: 999
   allowedEquipLocation: 10
-  ammunitionType: 0
+  ammunitionType: 2
