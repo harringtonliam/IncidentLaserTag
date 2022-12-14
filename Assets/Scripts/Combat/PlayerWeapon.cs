@@ -8,21 +8,18 @@ namespace RPG.Combat
 {
     public class PlayerWeapon : Weapon
     {
-
-
-        [SerializeField] float range = 100f;
-        [SerializeField] int damage = 10;
         [SerializeField] ParticleSystem muzzleFlash;
         [SerializeField] AudioClip firingSound;
         [SerializeField] GameObject hitVFX;
         //[SerializeField] Ammo ammoSlot;
-        //[SerializeField] AmmoType ammoType;
-        [SerializeField] float timeBetweenShots = 0.5f;
+        //[SerializeField] 
+
 
         bool canShoot = true;
 
 
         Camera FPCamera;
+        WeaponConfig weaponConfig;
 
         private void OnEnable()
         {
@@ -43,6 +40,12 @@ namespace RPG.Combat
             FPCamera = camera;
         }
 
+        public void Setup(Camera camera, WeaponConfig config)
+        {
+            FPCamera = camera;
+            weaponConfig = config;
+        }
+
         private IEnumerator Shoot()
         {
             canShoot = false;
@@ -54,7 +57,7 @@ namespace RPG.Combat
             ProcessRayCast();
             //ammoSlot.DecreaseAmmoAmount(ammoType);
             //}
-            yield return new WaitForSeconds(timeBetweenShots);
+            yield return new WaitForSeconds(weaponConfig.TimeBetweenShots);
             canShoot = true;
 
         }
@@ -77,9 +80,8 @@ namespace RPG.Combat
 
         private void ProcessRayCast()
         {
-            Debug.Log("ProcessRayCast   ");
             RaycastHit hit;
-            bool raycastForward = Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range);
+            bool raycastForward = Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, weaponConfig.WeaponRange);
 
             if (raycastForward)
             {
@@ -87,7 +89,7 @@ namespace RPG.Combat
                 Health target = hit.transform.GetComponent<Health>();
                 if (target != null)
                 {
-                    target.TakeDamage(damage);
+                    target.TakeDamage(weaponConfig.WeaponDamage);
                 }
 
             }

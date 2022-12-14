@@ -30,14 +30,18 @@ namespace RPG.Combat
             }
         }
 
+        public int GetLength()
+        {
+            return dockedItems.Length;
+        }
 
         public WeaponConfig GetAction(int index)
         {
-            //if (dockedItems.Length <= index)
-            //{
+            if (dockedItems.Length <= index)
+            {
                 return dockedItems[index].weaponConfig;
-            //}
-            //return null;
+            }
+            return null;
         }
 
         public int GetNumber(int index)

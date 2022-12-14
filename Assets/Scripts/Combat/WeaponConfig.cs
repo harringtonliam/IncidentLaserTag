@@ -19,6 +19,7 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] bool isRangedWeapon = false;
+        [SerializeField] float timeBetweenShots = 0.5f;
 
 
 
@@ -51,6 +52,11 @@ namespace RPG.Combat
         public int WeaponDamageAdditiveBonus
         {
             get { return weaponDamageAdditiveBonus; }
+        }
+
+        public float TimeBetweenShots
+        {
+            get { return timeBetweenShots; }
         }
 
 

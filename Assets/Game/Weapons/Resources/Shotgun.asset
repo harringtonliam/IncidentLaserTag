@@ -32,3 +32,4 @@ MonoBehaviour:
   weaponRange: 50
   isRightHanded: 1
   isRangedWeapon: 0
+  timeBetweenShots: 2.5

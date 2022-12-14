@@ -14,6 +14,8 @@ namespace RPG.Combat
         WeaponStore weaponStore;
         WeaponConfig currentWeaponConfig;
 
+        int currentWeaponIndex;
+
 
 
         private void Awake()
@@ -35,13 +37,32 @@ namespace RPG.Combat
             }
         }
 
+        void Update()
+        {
+            int previousWeaponIndex = currentWeaponIndex;
+
+            ProcessKeyInput();
+            ProcessScrollWheel();
+
+            if (previousWeaponIndex != currentWeaponIndex)
+            {
+                Debug.Log("current weapon index " + currentWeaponIndex);
+                if(weaponStore.GetAction(currentWeaponIndex) != null)
+                {
+                    weaponStore.SetActiveWeapon(currentWeaponIndex);
+                }
+                
+            }
+
+        }
+
 
         public Weapon EquipWeapon(WeaponConfig weaponConfig)
         {
             currentWeaponConfig = weaponConfig;
             Animator animator = GetComponent<Animator>();
             currentWeapon = (PlayerWeapon)currentWeaponConfig.Spawn(weaponPositionTransform);
-            currentWeapon.SetFPCamera(FPCamera);
+            currentWeapon.Setup(FPCamera, currentWeaponConfig);
             return currentWeapon;
         }
 
@@ -53,6 +74,52 @@ namespace RPG.Combat
                 EquipWeapon(weaponConfig);
             }
 
+        }
+
+        private void ProcessKeyInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                currentWeaponIndex = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                currentWeaponIndex = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                currentWeaponIndex = 2;
+            }
+        }
+
+        private void ProcessScrollWheel()
+        {
+
+
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            {
+                if (currentWeaponIndex >= weaponStore.GetLength() - 1)
+                {
+                    currentWeaponIndex = 0;
+                }
+                else
+                {
+                    currentWeaponIndex++;
+                }
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                if (currentWeaponIndex <= 0)
+                {
+                    currentWeaponIndex = weaponStore.GetLength() - 1;
+                }
+                else
+                {
+                    currentWeaponIndex--;
+                }
+            }
         }
     }
 
