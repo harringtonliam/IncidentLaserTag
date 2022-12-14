@@ -88,6 +88,35 @@ namespace RPG.Combat
                 }
             }
         }
+
+
+        public bool AddToFirstEmptySlot(WeaponConfig item, int number)
+        {
+            int weaponSlotIndex = -1;
+
+                for (int i = 0; i < dockedItems.Length; i++)
+                {
+                    if (dockedItems[i].weaponConfig == null)
+                    {
+                        Debug.Log("found empty ammo slot");
+                    weaponSlotIndex = i;
+                        break;
+                    }
+                }
+     
+            Debug.Log("Weapon slot index " + weaponSlotIndex);
+
+            if (weaponSlotIndex >= 0 && weaponSlotIndex < dockedItems.Length)
+            {
+                AddAction(item, weaponSlotIndex, number, true);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public WeaponConfig GetActiveWeapon()
         {
             foreach (var dockedItem  in dockedItems)

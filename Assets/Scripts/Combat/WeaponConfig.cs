@@ -76,8 +76,23 @@ namespace RPG.Combat
                 animator.runtimeAnimatorController = weaponOverrideController;
             }
 
+
             return weapon;
-            
+        }
+
+        public Weapon Spawn(Transform weaponPosition)
+        {
+            DestroyOldWeapon(weaponPosition, weaponPosition);
+
+            Weapon weapon = null;
+
+            if (equipedPrefab != null)
+            {
+
+                weapon = Instantiate(equipedPrefab, weaponPosition);
+                weapon.gameObject.name = weaponName;
+            }
+            return weapon;
         }
 
         private void DestroyOldWeapon(Transform rightHand, Transform leftHand)

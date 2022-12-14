@@ -15,14 +15,16 @@ MonoBehaviour:
   itemID: 68548f6b-1214-425f-a640-91580f481309
   displayName: Laser Rifle
   description: Laser Rifle
-  icon: {fileID: 0}
-  pickup: {fileID: 0}
+  icon: {fileID: 21300000, guid: 39fa7457ffa8508438214e23f2314a24, type: 3}
+  pickup: {fileID: 7864711616720041944, guid: 5b1c69ee125dbf742ad0506da329a370, type: 3}
   isStackable: 0
   maxNumberInStack: 20
   allowedEquipLocation: 3
-  weaponOverrideController: {fileID: 0}
-  equipedPrefab: {fileID: 0}
-  ammunitionType: 0
+  weaponOverrideController: {fileID: 22100000, guid: 60c0f18b2b949184a95d34e272881793,
+    type: 2}
+  equipedPrefab: {fileID: 9005427375973724767, guid: 3efbf0ef9b658484696585363c5520be,
+    type: 3}
+  ammunitionType: 2
   weaponDamage: 10
   weaponDamageAdditiveBonus: 0
   weaponToHitBonus: 0

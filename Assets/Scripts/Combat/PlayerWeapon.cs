@@ -9,7 +9,7 @@ namespace RPG.Combat
     public class PlayerWeapon : Weapon
     {
 
-        [SerializeField] Camera FPCamera;
+
         [SerializeField] float range = 100f;
         [SerializeField] int damage = 10;
         [SerializeField] ParticleSystem muzzleFlash;
@@ -21,6 +21,8 @@ namespace RPG.Combat
 
         bool canShoot = true;
 
+
+        Camera FPCamera;
 
         private void OnEnable()
         {
@@ -34,6 +36,11 @@ namespace RPG.Combat
                 StartCoroutine(Shoot());
             }
 
+        }
+
+        public void SetFPCamera(Camera camera)
+        {
+            FPCamera = camera;
         }
 
         private IEnumerator Shoot()

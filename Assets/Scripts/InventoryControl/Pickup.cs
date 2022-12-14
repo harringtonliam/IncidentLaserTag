@@ -42,16 +42,20 @@ namespace RPG.InventoryControl
         public void PickupItem()
         {
             bool slotFoundOk = true;
-            Ammunition ammunitionItem = (Ammunition)inventoryItem;
-
-
-            if (ammunitionItem != null)
+            Ammunition ammunitionItem;
+            WeaponConfig weaponConfigItem;
+            if (inventoryItem.GetType() == typeof(Ammunition))
             {
-                Debug.Log("adding ammo to slot");
+                ammunitionItem = (Ammunition)inventoryItem;
                 slotFoundOk = player.GetComponent<AmmunitionStore>().AddToFirstEmptySlot(ammunitionItem, numberOfItems);
             }
-            else
+            else if (inventoryItem.GetType() == typeof(WeaponConfig))
             {
+                weaponConfigItem = (WeaponConfig)inventoryItem;
+                slotFoundOk = player.GetComponent<WeaponStore>().AddToFirstEmptySlot(weaponConfigItem, numberOfItems);
+            }
+            else
+            { 
                 slotFoundOk = inventory.AddToFirstEmptySlot(inventoryItem, numberOfItems);
             }
 

@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a97138aaf702dd04fb324744a750598d, type: 3}
-  m_Name: LaserPistol
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  itemID: 65615160-5a26-430a-9b40-44a7b630f20e
-  displayName: Laser Pistol
-  description: Laser Pistol
-  icon: {fileID: 21300000, guid: 258f00ca6abf6f14da9377740e180ae0, type: 3}
-  pickup: {fileID: 7864711616720041944, guid: 98805173dd4550d4d834e9767b81c331, type: 3}
+  itemID: 0ba36162-6613-4b62-b6a6-769c3587d4ac
+  displayName: Shotgun
+  description: Plasma Shotgun
+  icon: {fileID: 21300000, guid: 615e04ae673403d4287aea086b85e7c6, type: 3}
+  pickup: {fileID: 7864711616720041944, guid: 037a472aca4fa5c42ae6ab513794bc5b, type: 3}
   isStackable: 0
   maxNumberInStack: 1
   allowedEquipLocation: 3
-  weaponOverrideController: {fileID: 22100000, guid: df85e93bca28749498c3b9c4065f22f0,
+  weaponOverrideController: {fileID: 22100000, guid: f2d96d73f98b0a14c8abba5075b5a65c,
     type: 2}
-  equipedPrefab: {fileID: 9005427375973724767, guid: 6b775085803d8b74997389a8fcbd72eb,
+  equipedPrefab: {fileID: 9005427375973724767, guid: 0f7ce73279c756043b777df7d69218f6,
     type: 3}
-  ammunitionType: 1
-  weaponDamage: 5
+  ammunitionType: 3
+  weaponDamage: 20
   weaponDamageAdditiveBonus: 0
   weaponToHitBonus: 0
   percentageBonus: 0
   weaponRange: 50
   isRightHanded: 1
-  isRangedWeapon: 1
+  isRangedWeapon: 0
