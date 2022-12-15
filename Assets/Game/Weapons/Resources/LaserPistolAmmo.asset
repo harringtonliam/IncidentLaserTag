@@ -20,4 +20,4 @@ MonoBehaviour:
   isStackable: 1
   maxNumberInStack: 999
   allowedEquipLocation: 10
-  ammunitionType: 0
+  ammunitionType: 1

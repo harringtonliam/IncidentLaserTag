@@ -72,6 +72,7 @@ namespace RPG.Combat
 
         public void AddAction(InventoryItem item, int index, int number)
         {
+            Debug.Log("Ammo store add action" );
             if (object.ReferenceEquals(item, dockedItems[index].ammunition))
             {
                 dockedItems[index].number += number;
@@ -85,6 +86,7 @@ namespace RPG.Combat
             }
             if (storeUpdated != null)
             {
+                Debug.Log("Ammo store storeupdated");
                 storeUpdated();
             }
         }
@@ -127,9 +129,32 @@ namespace RPG.Combat
             return 1;
         }
 
+        public int GetAmmunitionLevel(AmmunitionType ammunitionType)
+        {
+            int ammunitionlevel = 0;
+            int ammunitionIndex = FindAmmunitionType(ammunitionType);
+            if (ammunitionIndex != -1)
+            {
+                ammunitionlevel = GetNumber(ammunitionIndex);
+            }
+            return ammunitionlevel;
+        }
+
+        public int DrcreaseesAmmunitionLevel(AmmunitionType ammunitionType, int number)
+        {
+            int ammunitionlevel = 0;
+            int ammunitionIndex = FindAmmunitionType(ammunitionType);
+            if (ammunitionIndex != -1)
+            {
+                RemoveItems(ammunitionIndex, number);
+            }
+            return ammunitionlevel;
+        }
+
+
         public int FindAmmunitionType(AmmunitionType ammunitionType)
         {
-            for (int i = 0; i < dockedItems.Length; i++)
+           for (int i = 0; i < dockedItems.Length; i++)
             {
                 if (dockedItems[i].ammunition != null && dockedItems[i].ammunition.AmmunitionType == ammunitionType)
                 {

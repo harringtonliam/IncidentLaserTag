@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dockedItems:
-  - ammunition: {fileID: 0}
-    number: 0
+  - ammunition: {fileID: 11400000, guid: bda451b207144034898188e760881c40, type: 2}
+    number: 50
   - ammunition: {fileID: 0}
     number: 0
   - ammunition: {fileID: 0}

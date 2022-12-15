@@ -11,8 +11,6 @@ namespace RPG.Combat
         [SerializeField] ParticleSystem muzzleFlash;
         [SerializeField] AudioClip firingSound;
         [SerializeField] GameObject hitVFX;
-        //[SerializeField] Ammo ammoSlot;
-        //[SerializeField] 
 
 
         bool canShoot = true;
@@ -20,6 +18,14 @@ namespace RPG.Combat
 
         Camera FPCamera;
         WeaponConfig weaponConfig;
+        GameObject player;
+        AmmunitionStore playerAmmunitionStore;
+
+        private void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerAmmunitionStore = player.GetComponent<AmmunitionStore>();
+        }
 
         private void OnEnable()
         {
@@ -49,17 +55,16 @@ namespace RPG.Combat
         private IEnumerator Shoot()
         {
             canShoot = false;
-            //TODO: Add ammunition
-            //if (ammoSlot.GetAmmoAmount(ammoType) > 0)
-            //{
-            PlayMuzzleFlash();
-            PlayFiringSound();
-            ProcessRayCast();
-            //ammoSlot.DecreaseAmmoAmount(ammoType);
-            //}
+
+            if (playerAmmunitionStore.GetAmmunitionLevel(weaponConfig.AmmunitionType) > 0)
+            {
+                PlayMuzzleFlash();
+                PlayFiringSound();
+                ProcessRayCast();
+                playerAmmunitionStore.DrcreaseesAmmunitionLevel(weaponConfig.AmmunitionType, 1);
+            }
             yield return new WaitForSeconds(weaponConfig.TimeBetweenShots);
             canShoot = true;
-
         }
 
         private void PlayFiringSound()

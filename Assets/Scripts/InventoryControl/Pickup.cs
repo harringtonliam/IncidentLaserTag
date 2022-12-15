@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Control;
 using RPG.Combat;
+using RPG.Attributes;
+using System;
 
 namespace RPG.InventoryControl
 {
@@ -12,6 +14,7 @@ namespace RPG.InventoryControl
         //Config
         [SerializeField] InventoryItem inventoryItem = null;
         [SerializeField] int numberOfItems = 1;
+        [SerializeField] AudioSource pickupAudioSource;
 
         //Cached references
         Inventory inventory;
@@ -20,6 +23,8 @@ namespace RPG.InventoryControl
         public int NumberOfItems { get { return numberOfItems; } }
 
         GameObject player;
+
+        bool hasbeenPickupUp = false;
 
 
         void Awake()
@@ -41,6 +46,7 @@ namespace RPG.InventoryControl
 
         public void PickupItem()
         {
+            if (hasbeenPickupUp) return;
             bool slotFoundOk = true;
             Ammunition ammunitionItem;
             WeaponConfig weaponConfigItem;
@@ -54,6 +60,12 @@ namespace RPG.InventoryControl
                 weaponConfigItem = (WeaponConfig)inventoryItem;
                 slotFoundOk = player.GetComponent<WeaponStore>().AddToFirstEmptySlot(weaponConfigItem, numberOfItems);
             }
+            else if(inventoryItem.GetType() == typeof(MedicalPack))
+            {
+                MedicalPack medicalPack = (MedicalPack)inventoryItem;
+                player.GetComponent<Health>().Heal(medicalPack.MedicalPackHealing);
+                slotFoundOk = true;
+            }
             else
             { 
                 slotFoundOk = inventory.AddToFirstEmptySlot(inventoryItem, numberOfItems);
@@ -61,13 +73,21 @@ namespace RPG.InventoryControl
 
             if (slotFoundOk)
             {
-                Destroy(gameObject);
+                hasbeenPickupUp = true;
+                PlayPickUpSound();
+                Destroy(gameObject, 1f);
                 ScenePickups scenePickups = FindObjectOfType<ScenePickups>();
                 if (scenePickups != null)
                 {
                     scenePickups.RemoveItem(this.inventoryItem, this.numberOfItems, this.transform.position);
                 }
             }
+        }
+
+        private void PlayPickUpSound()
+        {
+            if (pickupAudioSource == null) return;
+            pickupAudioSource.Play();
         }
 
         public bool CanBePickedUp()

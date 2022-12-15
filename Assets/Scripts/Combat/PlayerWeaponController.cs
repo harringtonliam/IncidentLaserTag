@@ -14,7 +14,7 @@ namespace RPG.Combat
         WeaponStore weaponStore;
         WeaponConfig currentWeaponConfig;
 
-        int currentWeaponIndex;
+
 
 
 
@@ -39,21 +39,8 @@ namespace RPG.Combat
 
         void Update()
         {
-            int previousWeaponIndex = currentWeaponIndex;
-
             ProcessKeyInput();
             ProcessScrollWheel();
-
-            if (previousWeaponIndex != currentWeaponIndex)
-            {
-                Debug.Log("current weapon index " + currentWeaponIndex);
-                if(weaponStore.GetAction(currentWeaponIndex) != null)
-                {
-                    weaponStore.SetActiveWeapon(currentWeaponIndex);
-                }
-                
-            }
-
         }
 
 
@@ -80,23 +67,22 @@ namespace RPG.Combat
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                currentWeaponIndex = 0;
+                weaponStore.SetActiveWeapon(0);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+                if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                currentWeaponIndex = 1;
+                weaponStore.SetActiveWeapon(1);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                currentWeaponIndex = 2;
+                weaponStore.SetActiveWeapon(2);
             }
         }
 
         private void ProcessScrollWheel()
         {
-
-
-
+            int currentWeaponIndex = weaponStore.GetActiveWeaponIndex();
+            int previousWeaponIndex = currentWeaponIndex;
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
                 if (currentWeaponIndex >= weaponStore.GetLength() - 1)
@@ -120,6 +106,12 @@ namespace RPG.Combat
                     currentWeaponIndex--;
                 }
             }
+
+            if(previousWeaponIndex != currentWeaponIndex)
+            {
+                weaponStore.SetActiveWeapon(currentWeaponIndex);
+            }
+            
         }
     }
 

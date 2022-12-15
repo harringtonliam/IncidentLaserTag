@@ -13,7 +13,7 @@ namespace RPG.Combat
         DockedItemSlot[] dockedItems = new  DockedItemSlot[4];
 
         [Serializable]
-        private class DockedItemSlot
+        public class DockedItemSlot
         {
             public WeaponConfig weaponConfig;
             public int number;
@@ -52,6 +52,9 @@ namespace RPG.Combat
             }
             return 0;
         }
+
+        public DockedItemSlot[] GetDockedItems () { return dockedItems; } 
+
 
 
         public void AddAction(InventoryItem item, int index, int number, bool isActive)
@@ -148,13 +151,13 @@ namespace RPG.Combat
 
         public void SetActiveWeapon(int slot)
         {
-            foreach (var dockedItem in dockedItems)
-            {
-                dockedItem.isActive = false;
-            }
 
             if (dockedItems[slot] != null)
             {
+                foreach (var dockedItem in dockedItems)
+                {
+                    dockedItem.isActive = false;
+                }
                 dockedItems[slot].isActive = true;
             }
 
