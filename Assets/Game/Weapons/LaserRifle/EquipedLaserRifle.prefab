@@ -51,13 +51,9 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  FPCamera: {fileID: 0}
-  range: 100
-  damage: 10
   muzzleFlash: {fileID: 8118835746385027709}
   firingSound: {fileID: 8300000, guid: 859c21557330ada44bce48a73df431b9, type: 3}
   hitVFX: {fileID: 1384676760634654, guid: 289ba3245c9c98c42aeb93d5f45a2248, type: 3}
-  timeBetweenShots: 0.5
 --- !u!1 &3538874435284914113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,7 +5020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8244600239329004433}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5600,7 +5596,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 4
+    maxNumParticles: 200
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -5866,7 +5862,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
