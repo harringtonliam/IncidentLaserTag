@@ -16,6 +16,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4078725191484616, guid: c38312671b1287f438871de666ae8f72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: c38312671b1287f438871de666ae8f72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: c38312671b1287f438871de666ae8f72, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078725191484616, guid: c38312671b1287f438871de666ae8f72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -62,6 +74,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 82a7ccffd2fed3e47ae444f4d5b0e027, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38312671b1287f438871de666ae8f72, type: 3}
+--- !u!4 &4958326781784625354 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4171421287827974, guid: c38312671b1287f438871de666ae8f72,
+    type: 3}
+  m_PrefabInstance: {fileID: 4954331305442925260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4958563365226794858 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4795010274694566, guid: c38312671b1287f438871de666ae8f72,
+    type: 3}
+  m_PrefabInstance: {fileID: 4954331305442925260}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5707345033483089292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,6 +93,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: shoutDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558725, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_Name
@@ -133,12 +162,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leftHandTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4958563365226794858}
     - target: {fileID: 7601096524908337360, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: rightHandTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4958326781784625354}
     - target: {fileID: 7601096524908337360, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: defaultWeaponConfig
