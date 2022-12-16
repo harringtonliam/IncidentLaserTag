@@ -1,78 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4223275952585804189
+--- !u!1001 &5530489508182953191
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 3380047883662055322}
     m_Modifications:
-    - target: {fileID: 1604611627540692, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 1295359657651894, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_Name
-      value: SM_Chr_Boss_Male_01
+      value: SM_Chr_Developer_Male_01
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4047994402085326, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
+    - target: {fileID: 4800856644408790, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 137162056050645738, guid: 0636a8b0926172c499640f89dacb0a94,
+    - target: {fileID: 137388815983238318, guid: 32b926586df8d6f49b0136c82d26645f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d08a61443859d747a9ec3b1d1b5116f, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e77580f51320374e9c5946707ed00c3, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
---- !u!4 &4219059093616637135 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 32b926586df8d6f49b0136c82d26645f, type: 3}
+--- !u!4 &5535008487221773079 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4799360725761362, guid: 0636a8b0926172c499640f89dacb0a94,
+  m_CorrespondingSourceObject: {fileID: 4628958396370928, guid: 32b926586df8d6f49b0136c82d26645f,
     type: 3}
-  m_PrefabInstance: {fileID: 4223275952585804189}
+  m_PrefabInstance: {fileID: 5530489508182953191}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4220796862719661755 stripped
+--- !u!4 &5535020292552929935 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4327094073859878, guid: 0636a8b0926172c499640f89dacb0a94,
+  m_CorrespondingSourceObject: {fileID: 4619352006934120, guid: 32b926586df8d6f49b0136c82d26645f,
     type: 3}
-  m_PrefabInstance: {fileID: 4223275952585804189}
+  m_PrefabInstance: {fileID: 5530489508182953191}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8078646348800690973
 PrefabInstance:
@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 6842456200856558725, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_Name
-      value: OfficeWorker_Boss_Male_01_04_A
+      value: Developer_Male_01_02_B
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558727, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -160,12 +160,12 @@ PrefabInstance:
         type: 3}
       propertyPath: leftHandTransform
       value: 
-      objectReference: {fileID: 4219059093616637135}
+      objectReference: {fileID: 5535008487221773079}
     - target: {fileID: 7601096524908337360, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: rightHandTransform
       value: 
-      objectReference: {fileID: 4220796862719661755}
+      objectReference: {fileID: 5535020292552929935}
     - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size

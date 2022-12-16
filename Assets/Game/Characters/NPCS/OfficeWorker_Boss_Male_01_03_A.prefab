@@ -59,7 +59,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d08a61443859d747a9ec3b1d1b5116f, type: 2}
+      objectReference: {fileID: 2100000, guid: c648aa29e04ae994292fdd683107d568, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0636a8b0926172c499640f89dacb0a94, type: 3}
 --- !u!4 &4219059093616637135 stripped
@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 6842456200856558725, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_Name
-      value: OfficeWorker_Boss_Male_01_04_A
+      value: OfficeWorker_Boss_Male_01_03_A
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558727, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
