@@ -93,6 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 9000000, guid: 318840a7e38980943bb4c508fa842265, type: 3}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
+      propertyPath: shoutDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
       propertyPath: aIRelationship
       value: 1
       objectReference: {fileID: 0}

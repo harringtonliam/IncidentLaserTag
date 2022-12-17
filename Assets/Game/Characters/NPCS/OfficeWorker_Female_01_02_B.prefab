@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3380047883662055320, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: m_Name
-      value: OfficeWorker_Default Variant
+      value: OfficeWorker_Female_01_02_B
       objectReference: {fileID: 0}
     - target: {fileID: 3380047883662055322, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}

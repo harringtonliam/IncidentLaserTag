@@ -24,7 +24,10 @@ namespace RPG.Control
         [SerializeField] GameObject combatTargetGameObject;
 
         GameObject player;
+        float playerHeight = 0f;
         Mover mover;
+
+        float AIControllerHeight;
 
 
         Vector3 guardPosition;
@@ -41,6 +44,8 @@ namespace RPG.Control
         private void Awake()
         {
             player = GameObject.FindWithTag("Player");
+            playerHeight  = player.GetComponent<CapsuleCollider>().height;
+
             mover = GetComponent<Mover>();
             if (aIRelationship == AIRelationship.Hostile)
             {
@@ -51,7 +56,13 @@ namespace RPG.Control
         // Start is called before the first frame update
         void Start()
         {
-              guardPosition = transform.position;
+            guardPosition = transform.position;
+            CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
+            if (capsuleCollider != null)
+            {
+                AIControllerHeight = capsuleCollider.height;
+            } 
+ 
         }
 
         // Update is called once per frame
@@ -201,7 +212,11 @@ namespace RPG.Control
                 //aggrevated
                 return true;
             }
-            return DistanceToCombatTarget() <= chaseDistance;
+            if (DistanceToCombatTarget() <= chaseDistance && CheckLineOfSightToCombatTargetOk())
+            {
+                return true;
+            }
+            return false;
         }
 
         private float DistanceToCombatTarget()
@@ -210,6 +225,27 @@ namespace RPG.Control
             float distance = Vector3.Distance(combatTargetGameObject.transform.position, transform.position);
             return distance;
         }
+
+        private bool CheckLineOfSightToCombatTargetOk()
+        {
+            bool lineOfSightOk = false;
+
+            Vector3 playerMidPoint = player.transform.position + new Vector3(0f, (playerHeight / 2), 0f);
+            Vector3 aiHeadHight = transform.position + new Vector3(0f, (AIControllerHeight), 0f);
+
+            var directionToPlayer = playerMidPoint - aiHeadHight;
+            RaycastHit hit;
+            bool raycastForward = Physics.Raycast(aiHeadHight, directionToPlayer, out hit, chaseDistance);
+            //Debug.DrawLine(aiHeadHight, hit.point, Color.red);
+            if (raycastForward && hit.transform.tag == player.tag)
+            {
+                lineOfSightOk = true;
+            }
+
+            return lineOfSightOk;
+        }
+
+
 
         void OnDrawGizmosSelected()
         {
