@@ -101,6 +101,11 @@ namespace RPG.Attributes
             }
         }
 
+        public void DestroyOnDeath()
+        {
+            Destroy(gameObject, 1f);
+        }
+
         private void ResizeCapsuleColliderOnDeath()
         {
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
@@ -126,5 +131,7 @@ namespace RPG.Attributes
                 Die();
             }
         }
+
+        
     }
 }
