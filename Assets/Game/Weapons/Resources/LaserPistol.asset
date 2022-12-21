@@ -25,11 +25,11 @@ MonoBehaviour:
   equipedPrefab: {fileID: 9005427375973724767, guid: 6b775085803d8b74997389a8fcbd72eb,
     type: 3}
   ammunitionType: 1
-  weaponDamage: 5
+  weaponDamage: 10
   weaponDamageAdditiveBonus: 0
   weaponToHitBonus: 0
   percentageBonus: 0
   weaponRange: 50
   isRightHanded: 1
   isRangedWeapon: 1
-  timeBetweenShots: 1.5
+  timeBetweenShots: 1

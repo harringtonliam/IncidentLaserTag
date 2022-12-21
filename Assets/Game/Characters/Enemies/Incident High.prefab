@@ -15,7 +15,12 @@ PrefabInstance:
     - target: {fileID: 1957340858820634594, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
       propertyPath: maxHealthPoints
-      value: 30
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: waypointPauseTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3685697902748971392, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
@@ -76,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Incident High
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685697902748971395, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: m_Speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4, type: 3}
