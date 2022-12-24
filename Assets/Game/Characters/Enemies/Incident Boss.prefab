@@ -93,6 +93,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1788435076821689885, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: scoreType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831451344183690282, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: shoutDistance

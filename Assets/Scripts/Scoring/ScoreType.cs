@@ -3,7 +3,11 @@ namespace RPG.Scoring
 {
     public enum ScoreType
     {
-        Incident,
+        IncidentLow,
+        IncidentMedium,
+        IncidentHigh,
+        IncidentCritical,
+        IncidentBoss,
         Colleague
     }
 

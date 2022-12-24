@@ -9,29 +9,75 @@ namespace RPG.Scoring
 
     public class PlayerScore : MonoBehaviour, ISaveable
     {
-        int incidentsTagged = 0;
-        int colleaguesTagged = 0;
+        [SerializeField] ScoreType negativeScoreType = ScoreType.Colleague;
 
-        public int IncidentsTagged {  get { return incidentsTagged; } }
-        public int ColleaguesTagged { get { return colleaguesTagged; } }
+        CurrentScores[] currentScores;
+
+
+        public CurrentScores[] CurrentPlayerScores {  get { return currentScores; } }
+
 
 
         public event Action scoreUpdated;
 
+        public struct CurrentScores
+        {
+            public ScoreType scoreType;
+            public int score;
+            public int maxScore;
+            public bool isNegativeScore;
+        }
+
         private void Start()
         {
+            InitializeScores();
             InvokeScoreUpdated();
+        }
+
+        private void InitializeScores()
+        {
+            currentScores = new CurrentScores[5];
+            int i = 0;
+            foreach (ScoreType scoretype in Enum.GetValues(typeof(ScoreType)))
+            {
+                currentScores[i].scoreType = scoretype;
+                currentScores[i].score = 0;
+                currentScores[i].maxScore = 0;
+                currentScores[i].isNegativeScore = scoretype==negativeScoreType;
+            }
+
+            InitializeMaxScores();
+        }
+
+        public void InitializeMaxScores()
+        {
+            Score[] allScores = FindObjectsOfType<Score>();
+            foreach (var score in allScores)
+            {
+                AddToMaxScore(score.ScoreType, score.Points);
+                
+            }
+        }
+
+        private void AddToMaxScore(ScoreType scoreType, int points)
+        {
+            for (int i = 0; i < currentScores.Length; i++)
+            {
+                if (currentScores[i].scoreType == scoreType)
+                {
+                    currentScores[i].maxScore+= points;
+                }
+            }
         }
 
         public void AddToScore(int points, ScoreType scoreType)
         {
-            if (scoreType == ScoreType.Colleague)
+            for (int i = 0; i < currentScores.Length; i++)
             {
-                colleaguesTagged = colleaguesTagged + points;
-            }
-            if (scoreType == ScoreType.Incident)
-            {
-                incidentsTagged = incidentsTagged + points;
+                if (currentScores[i].scoreType == scoreType)
+                {
+                    currentScores[i].score += points;
+                }
             }
 
             InvokeScoreUpdated();
@@ -49,24 +95,32 @@ namespace RPG.Scoring
         [System.Serializable]
         private struct SavedScores
         {
-            public int savedIncidentsTagged;
-            public int savedColleaguesTagged;
+            public string scoreType;
+            public int score;
+            public int maxScore;
         }
 
         public object CaptureState()
         {
-            SavedScores savedScores = new SavedScores();
-            savedScores.savedIncidentsTagged = incidentsTagged;
-            savedScores.savedColleaguesTagged = colleaguesTagged;
+            SavedScores[] savedScores = new SavedScores[currentScores.Length];
+            for (int i = 0; i < currentScores.Length; i++)
+            {
+                savedScores[i].scoreType = currentScores[i].scoreType.ToString();
+                savedScores[i].score = currentScores[i].score;
+                savedScores[i].maxScore = currentScores[i].maxScore;
+            }
             return savedScores;
         }
 
         public void RestoreState(object state)
         {
-            SavedScores savedScores = (SavedScores)state;
-            incidentsTagged = savedScores.savedIncidentsTagged;
-            colleaguesTagged = savedScores.savedColleaguesTagged;
-            InvokeScoreUpdated();
+            //var savedScores = (SavedScores[])state;
+            //for (int i = 0; i < savedScores.length; i++)
+            //{
+
+            //}
+                
+            //InvokeScoreUpdated();
 
 
         }

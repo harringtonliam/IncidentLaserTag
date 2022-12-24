@@ -8,8 +8,7 @@ namespace RPG.UI.Scoring
 {
     public class ScoreUI : MonoBehaviour
     {
-        [SerializeField] TextMeshProUGUI incidentsTaggedScore;
-        [SerializeField] TextMeshProUGUI colleaguesTaggedScore;
+        [SerializeField] ScoreSlotUI scoreSlotUIPrefab;
         [SerializeField] TextMeshProUGUI totalScore;
 
         PlayerScore playerScore;
@@ -24,13 +23,39 @@ namespace RPG.UI.Scoring
 
         private void DisplayScore()
         {
-            incidentsTaggedScore.text = playerScore.IncidentsTagged.ToString();
-            colleaguesTaggedScore.text = playerScore.ColleaguesTagged.ToString();
-            totalScore.text = (playerScore.IncidentsTagged - playerScore.ColleaguesTagged).ToString();
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            int totalScore = 0;
+            foreach (var item in playerScore.CurrentPlayerScores)
+            {
+                totalScore = UpdateTotalScore(totalScore, item);
+
+                ScoreSlotUI scoreSlotUI = Instantiate(scoreSlotUIPrefab, transform);
+                scoreSlotUI.Setup(item.scoreType, item.score, item.maxScore);
+
+
+
+            }
 
 
         }
 
+        private  int UpdateTotalScore(int totalScore, PlayerScore.CurrentScores item)
+        {
+            if (item.isNegativeScore)
+            {
+                totalScore = totalScore - item.score;
+            }
+            else
+            {
+                totalScore = totalScore + item.score;
+            }
+
+            return totalScore;
+        }
     }
 
 }

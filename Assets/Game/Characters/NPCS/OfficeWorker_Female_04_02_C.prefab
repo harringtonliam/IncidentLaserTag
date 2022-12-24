@@ -84,6 +84,11 @@ PrefabInstance:
     - target: {fileID: -1788435076821689885, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: scoreType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1788435076821689885, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: isNegativeScore
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1392706548956907607, guid: fa3ace2be7f368e42a8e7f2401fec076,

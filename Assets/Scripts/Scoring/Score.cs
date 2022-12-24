@@ -8,8 +8,10 @@ namespace RPG.Scoring
     {
         [SerializeField] int points = 1;
         [SerializeField] ScoreType scoreType;
-
        
+
+        public ScoreType ScoreType {  get { return scoreType; } }
+        public int Points { get { return points; } }
 
         GameObject player;
 
@@ -19,11 +21,7 @@ namespace RPG.Scoring
             player = GameObject.FindWithTag("Player");
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
-        }
 
         public void ScorePoints()
         {
