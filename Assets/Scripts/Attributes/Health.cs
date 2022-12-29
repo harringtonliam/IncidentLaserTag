@@ -3,6 +3,7 @@ using RPG.Saving;
 using RPG.Core;
 using UnityEngine.Events;
 using System;
+using System.Collections;
 
 namespace RPG.Attributes
 {
@@ -12,6 +13,8 @@ namespace RPG.Attributes
         [SerializeField] UnityEvent<float> takeDamage;
         [SerializeField] UnityEvent onDie;
         [SerializeField] float maxHealthPoints = 10f;
+        [Tooltip("Time in Minutes") ]
+        [SerializeField] float resuscitateTime = Mathf.Infinity;
 
         public event Action healthUpdated;
 
@@ -90,7 +93,6 @@ namespace RPG.Attributes
                 animator.SetTrigger("die");
             }
 
-            ResizeCapsuleColliderOnDeath();
 
             isDead = true;
 
@@ -101,9 +103,16 @@ namespace RPG.Attributes
             }
         }
 
+        public void Resuscitate()
+        {
+            StartCoroutine(UndoDie());
+
+        }
+
         public void DestroyOnDeath()
         {
             Destroy(gameObject, 1f);
+
         }
 
         private void ResizeCapsuleColliderOnDeath()
@@ -114,6 +123,19 @@ namespace RPG.Attributes
                 capsuleCollider.height = capsuleCollider.height / 10f;
                 capsuleCollider.center = capsuleCollider.center / 4f;
             }
+        }
+
+        private IEnumerator UndoDie()
+        {
+            yield return new WaitForSeconds(resuscitateTime*60f);
+
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetTrigger("resuscitate");
+            }
+            isDead = false;
+
         }
 
 

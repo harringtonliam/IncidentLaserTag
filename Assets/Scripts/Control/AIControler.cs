@@ -16,12 +16,15 @@ namespace RPG.Control
         [SerializeField] float suspicionTime = 2f;
         [SerializeField] float aggrevationCoolDownTime = 2f;
         [SerializeField] PatrolPath patrolPath;
+        [SerializeField] bool doPatrolPathOnce = false;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointPauseTime = 2f;
         [Range(0f, 1f)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] GameObject combatTargetGameObject;
+        [SerializeField] Transform transformDestination;
+        [SerializeField] float guardPositionTolerance = 0.25f;
 
         GameObject player;
         float playerHeight = 0f;
@@ -31,6 +34,7 @@ namespace RPG.Control
 
 
         Vector3 guardPosition;
+        Quaternion guardPositionRotation;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceAggrevated = Mathf.Infinity;
         float timeAtWaypoint = Mathf.Infinity;
@@ -57,6 +61,7 @@ namespace RPG.Control
         void Start()
         {
             guardPosition = transform.position;
+            guardPositionRotation = transform.rotation;
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
             if (capsuleCollider != null)
             {
@@ -76,6 +81,7 @@ namespace RPG.Control
             if (InteractWithCombat()) return;
             if (InteractWithSuspicsion()) return;
             if (InteractWithPatrolPath()) return;
+            if (InteractWithTransformDestination()) return;
             if (InteractWithGuardPosition()) return;
         }
 
@@ -89,10 +95,32 @@ namespace RPG.Control
             chaseDistance = newChaseDistance;
         }
 
-        public void SetPatrolPath(PatrolPath newPatrolPath)
+        public void SetPatrolPath(PatrolPath newPatrolPath, bool useNewPatrolPath)
+        {
+            patrolPath = newPatrolPath;
+            doPatrolPathOnce = false;
+            currentWaypointIndex = 0;
+        }
+
+        public void SetPatrolPath(PatrolPath newPatrolPath, bool useNewPatrolPath, bool doPatrolPathOnce)
         {
             patrolPath = newPatrolPath;
             currentWaypointIndex = 0;
+            this.doPatrolPathOnce = doPatrolPathOnce;
+        }
+
+        public void SetWayPointPauseTime(float pauseTime)
+        {
+            waypointPauseTime = pauseTime;
+        }
+
+        public void SetPatrolSpeedFraction(float speedFraction)
+        {
+            patrolSpeedFraction = speedFraction;
+        }
+        public void SetTransformDestination( Transform destination)
+        {
+            transformDestination = destination;
         }
 
         public void SetCombatTarget(GameObject target)
@@ -112,12 +140,27 @@ namespace RPG.Control
                 CycleWaypoint();
             }
 
+            if (currentWaypointIndex < 0)
+            {
+                patrolPath = null;
+                return false;
+            }
+
             if (timeAtWaypoint > waypointPauseTime)
             {
                 mover.StartMovementAction(GetCurrentWaypoint(), patrolSpeedFraction);
             }
 
             return true;
+        }
+
+        private bool InteractWithTransformDestination()
+        {
+            if (transformDestination == null) return false;
+
+            mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
+            return true;
+
         }
 
         private bool AtWaypoint()
@@ -136,7 +179,7 @@ namespace RPG.Control
 
         private void CycleWaypoint()
         {
-            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex, doPatrolPathOnce);
         }
 
         private Vector3 GetCurrentWaypoint()
@@ -161,8 +204,25 @@ namespace RPG.Control
 
         private bool InteractWithGuardPosition()
         {
-            //mover.StartMovementAction(guardPosition, patrolSpeedFraction);
+            mover.StartMovementAction(guardPosition, patrolSpeedFraction);
+            if (AtGuardPosition())
+            {
+                transform.rotation = guardPositionRotation;
+            }
             return true;
+        }
+
+        private bool AtGuardPosition()
+        {
+            float distanceToGuardPosition = Vector3.Distance(transform.position, guardPosition);
+            if (distanceToGuardPosition <= guardPositionTolerance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool InteractWithCombat()

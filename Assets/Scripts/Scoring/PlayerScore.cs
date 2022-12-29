@@ -36,7 +36,7 @@ namespace RPG.Scoring
 
         private void InitializeScores()
         {
-            currentScores = new CurrentScores[5];
+            currentScores = new CurrentScores[6];
             int i = 0;
             foreach (ScoreType scoretype in Enum.GetValues(typeof(ScoreType)))
             {
@@ -44,6 +44,7 @@ namespace RPG.Scoring
                 currentScores[i].score = 0;
                 currentScores[i].maxScore = 0;
                 currentScores[i].isNegativeScore = scoretype==negativeScoreType;
+                i++;
             }
 
             InitializeMaxScores();

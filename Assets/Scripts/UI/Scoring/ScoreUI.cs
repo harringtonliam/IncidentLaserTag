@@ -9,7 +9,7 @@ namespace RPG.UI.Scoring
     public class ScoreUI : MonoBehaviour
     {
         [SerializeField] ScoreSlotUI scoreSlotUIPrefab;
-        [SerializeField] TextMeshProUGUI totalScore;
+        [SerializeField] TextMeshProUGUI totalScoreText;
 
         PlayerScore playerScore;
 
@@ -34,12 +34,10 @@ namespace RPG.UI.Scoring
                 totalScore = UpdateTotalScore(totalScore, item);
 
                 ScoreSlotUI scoreSlotUI = Instantiate(scoreSlotUIPrefab, transform);
-                scoreSlotUI.Setup(item.scoreType, item.score, item.maxScore);
-
-
-
+                scoreSlotUI.Setup(item.scoreType, item.score, item.maxScore, item.isNegativeScore);
             }
 
+            totalScoreText.text = totalScore.ToString();
 
         }
 

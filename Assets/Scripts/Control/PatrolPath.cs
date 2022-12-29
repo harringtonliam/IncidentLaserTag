@@ -44,6 +44,12 @@ namespace RPG.Control
             return j;
         }
 
+        public int GetNextIndex(int i, bool goRoundOnce)
+        {
+            if (goRoundOnce && i + 1 > transform.childCount - 1) return - 1;
+            return GetNextIndex(i);
+        }
+
         public Vector3 GetWaypoint(int i)
         {
             return transform.GetChild(i).position;
