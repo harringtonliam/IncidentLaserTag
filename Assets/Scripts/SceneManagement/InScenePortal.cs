@@ -41,7 +41,21 @@ namespace RPG.SceneManagement
 
 
 
+        void OnDrawGizmosSelected()
+        {
+            try
+            {
+               SphereCollider collider = GetComponent<SphereCollider>();
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, collider.radius);
+                Gizmos.DrawWireSphere(spawnPoint.position, 0.1f);
 
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("unable tp draw portal gizmo " + ex.Message);
+            }
+        }
 
 
     }
