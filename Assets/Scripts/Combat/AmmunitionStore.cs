@@ -57,7 +57,6 @@ namespace RPG.Combat
                     }
                 }
             }
-            Debug.Log("ammo slot index " + ammoSlotIndex);
 
             if (ammoSlotIndex >= 0 && ammoSlotIndex < dockedItems.Length)
             {
@@ -72,7 +71,6 @@ namespace RPG.Combat
 
         public void AddAction(InventoryItem item, int index, int number)
         {
-            Debug.Log("Ammo store add action" );
             if (object.ReferenceEquals(item, dockedItems[index].ammunition))
             {
                 dockedItems[index].number += number;
@@ -86,7 +84,6 @@ namespace RPG.Combat
             }
             if (storeUpdated != null)
             {
-                Debug.Log("Ammo store storeupdated");
                 storeUpdated();
             }
         }

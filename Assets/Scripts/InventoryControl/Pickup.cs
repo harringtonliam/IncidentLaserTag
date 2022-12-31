@@ -124,7 +124,6 @@ namespace RPG.InventoryControl
         {
             if(other.tag != "Player")  return;
 
-            Debug.Log("Ammo pickup triggered");
             PickupItem();
         }
 
