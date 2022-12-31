@@ -104,6 +104,8 @@ namespace RPG.Control
 
         public void SetPatrolPath(PatrolPath newPatrolPath, bool useNewPatrolPath, bool doPatrolPathOnce)
         {
+            if (patrolPath == newPatrolPath) return;
+
             patrolPath = newPatrolPath;
             currentWaypointIndex = 0;
             this.doPatrolPathOnce = doPatrolPathOnce;
