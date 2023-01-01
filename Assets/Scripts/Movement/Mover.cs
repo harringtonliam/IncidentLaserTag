@@ -60,13 +60,14 @@ namespace RPG.Movement
 
         public void StartMovementAction(Vector3 destination, float speedFraction)
         {
-
+            if (!navMeshAgent.enabled) return;
             GetComponent<ActionScheduler>().StartAction(this);
             MoveTo(destination, speedFraction);
         }
 
         public void MoveTo(Vector3 destination, float speedFraction)
         {
+            if (!navMeshAgent.enabled) return;
             navMeshAgent.destination = destination;
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             navMeshAgent.isStopped = false;

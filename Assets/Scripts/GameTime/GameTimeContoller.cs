@@ -18,6 +18,7 @@ namespace RPG.GameTime
         [SerializeField] WeekDays[] weekDays;
         [SerializeField] Months[] months;
         [SerializeField] float timeUpdateIntervalInMinutes = 1f;
+        [SerializeField] float startTriggerSecondsDelay = 30f;
 
         public event Action timeUpdate;
         public event Action hourHasPassed;
@@ -53,7 +54,7 @@ namespace RPG.GameTime
             currentYear = startYear;
             currentMonth = GetStartMonth();
 
-            TriggerAllEventActions();
+            StartCoroutine(TriggerEventActionsAfterdelay());
             Debug.Log("GameTimeContoller  start " + CurrentYear + " " + GetCurrentMonth() + " " + CurrentDayOfMonth + " " + GetCurrentDayOfWeek() + " " + CurrentHour);
         }
 
@@ -168,6 +169,12 @@ namespace RPG.GameTime
                     yearHasPassed();
                 }
             }
+        }
+
+        private IEnumerator TriggerEventActionsAfterdelay()
+        {
+            yield return new WaitForSeconds(startTriggerSecondsDelay);
+            TriggerAllEventActions();
         }
 
         private void TriggerAllEventActions()
