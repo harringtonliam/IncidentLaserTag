@@ -13,7 +13,7 @@ namespace RPG.GameTime
         [System.Serializable]
         public struct LightOnTimeRange {
             [SerializeField] public int lightOnStartHour;
-            [SerializeField] public int inligtOnEndHour;
+            [SerializeField] public int lightOnEndHour;
         }
 
         GameTimeContoller gameTimeContoller;
@@ -50,7 +50,7 @@ namespace RPG.GameTime
 
         private bool IsInLightOnRange(int currentHour, LightOnTimeRange lightOnTimeRange)
         {
-            if (currentHour >= lightOnTimeRange.lightOnStartHour && currentHour <= lightOnTimeRange.inligtOnEndHour)
+            if (currentHour >= lightOnTimeRange.lightOnStartHour && currentHour <= lightOnTimeRange.lightOnEndHour)
             {
                 return true;
             }

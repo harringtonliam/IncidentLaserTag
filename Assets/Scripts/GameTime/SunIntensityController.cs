@@ -14,6 +14,9 @@ namespace  RPG.GameTime
         [SerializeField] float dayTimeShadowStrenght = 1f;
         [SerializeField] float nightTimeIntensity = 0.1f;
         [SerializeField] float nightTimeShadowStrenght = 0.1f;
+        [SerializeField] float dayTimeEnvironmnetLightingIntensityMultiplier = 1f;
+        [SerializeField] float nighTimeEnvironmnetLightingIntensityMultiplier = 0.05f;
+        [SerializeField] float duskFraction = 0.5f;
 
 
 
@@ -26,7 +29,11 @@ namespace  RPG.GameTime
         
         private void SetSunProperties()
         {
-            if (IsDayTime())
+            if(IsDusk())
+            {
+
+            }
+            else if (IsDayTime())
             {
                 SetDayTimeProperties();
             }
@@ -42,17 +49,33 @@ namespace  RPG.GameTime
         {
             sun.intensity = nightTimeIntensity;
             sun.shadowStrength = nightTimeShadowStrenght;
+            RenderSettings.ambientIntensity = nighTimeEnvironmnetLightingIntensityMultiplier;
+
+
         }
 
         private void SetDayTimeProperties()
         {
             sun.intensity = dayTimeIntensity;
             sun.shadowStrength = dayTimeShadowStrenght;
+            RenderSettings.ambientIntensity = dayTimeEnvironmnetLightingIntensityMultiplier;
+        }
+
+        private void SetDuskProperties()
+        {
+            sun.intensity = dayTimeIntensity * duskFraction;
+            sun.shadowStrength = dayTimeShadowStrenght * duskFraction;
+            RenderSettings.ambientIntensity = dayTimeEnvironmnetLightingIntensityMultiplier * duskFraction;
         }
 
         private bool IsDayTime()
         {
-            return gameTimeController.CurrentHour >= sunriseHour && gameTimeController.CurrentHour <= sunsetHour;
+            return gameTimeController.CurrentHour > sunriseHour && gameTimeController.CurrentHour < sunsetHour;
+        }
+
+        private bool IsDusk()
+        {
+            return gameTimeController.CurrentHour == sunriseHour || gameTimeController.CurrentHour == sunsetHour;
         }
 
     }

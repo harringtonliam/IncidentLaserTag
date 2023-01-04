@@ -48,7 +48,10 @@ MonoBehaviour:
   sun: {fileID: 0}
   sunriseHour: 6
   sunsetHour: 18
-  dayTimeIntensity: 1
-  dayTimeShadowStrenght: 1
+  dayTimeIntensity: 2
+  dayTimeShadowStrenght: 0.75
   nightTimeIntensity: 0.1
   nightTimeShadowStrenght: 0.1
+  dayTimeEnvironmnetLightingIntensityMultiplier: 1
+  nighTimeEnvironmnetLightingIntensityMultiplier: 0.05
+  duskFraction: 0.25
