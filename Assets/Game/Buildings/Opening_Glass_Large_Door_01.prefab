@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3584557671507151389}
   - component: {fileID: 7994400838458986902}
+  - component: {fileID: 6777291344086578416}
   m_Layer: 0
   m_Name: Opening_Glass_Large_Door_01
   m_TagString: Untagged
@@ -183,6 +184,20 @@ MonoBehaviour:
   leftOpenPosition: {fileID: 3100684449885505766}
   leftClosedPosition: {fileID: 1020371937351706999}
   doorSpeed: 0.5
+  key: {fileID: 0}
+--- !u!65 &6777291344086578416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7885897459041919293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: -2.5, y: 0, z: 0}
 --- !u!1001 &930494076864394930
 PrefabInstance:
   m_ObjectHideFlags: 0

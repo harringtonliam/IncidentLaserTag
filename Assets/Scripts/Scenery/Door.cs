@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.InventoryControl;
 
 namespace RPG.Scenery
 {
@@ -14,6 +15,7 @@ namespace RPG.Scenery
         [SerializeField] Transform leftOpenPosition = null;
         [SerializeField] Transform leftClosedPosition = null;
         [SerializeField] float doorSpeed = 0.5f;
+        [SerializeField] InventoryItem key = null;
 
         bool opening = false;
         bool closing = false;
@@ -30,6 +32,19 @@ namespace RPG.Scenery
                 CloseDoors();
             }
             
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag != "Player") return;
+            if (key == null) return;
+     
+
+            var playerInventory = other.GetComponent<Inventory>();
+            if(playerInventory.HasItem(key))
+            {
+                StartOpening();
+            }
         }
 
         public void StartOpening()
