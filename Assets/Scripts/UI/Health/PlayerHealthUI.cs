@@ -43,7 +43,6 @@ namespace RPG.UI.HealthUI
         private void DisplayHealthText()
         {
             healthPoints.text = playerHealth.HealthPoints.ToString();
-            SetHelthPointTextColor();
         }
 
         private void SetHelthPointTextColor()

@@ -86,6 +86,7 @@ namespace RPG.Attributes
         public void Die()
         {
             if (isDead) return;
+            isDead = true;
             onDie.Invoke();
             Animator animator = GetComponent<Animator>();
             if (animator != null)
@@ -94,7 +95,7 @@ namespace RPG.Attributes
             }
 
 
-            isDead = true;
+            
 
             ActionScheduler actionScheduler = GetComponent<ActionScheduler>();
             if (actionScheduler != null)

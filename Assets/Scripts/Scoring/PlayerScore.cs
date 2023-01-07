@@ -50,6 +50,29 @@ namespace RPG.Scoring
             InitializeMaxScores();
         }
 
+        public float GetPercentageScore()
+        {
+            float maxScore = 0;
+            float currentTotalScore = 0;
+            for (int i = 0; i < currentScores.Length; i++)
+            {
+                if (currentScores[i].scoreType != negativeScoreType)
+                {
+                    maxScore += currentScores[i].maxScore;
+                    currentTotalScore += currentScores[i].score;
+                }
+                else
+                {
+                    currentTotalScore -= currentScores[i].score;
+                }
+
+            }
+            float percenatgeScore = (currentTotalScore / maxScore) * 100;
+            Debug.Log("Percentage score = " +percenatgeScore.ToString());
+
+            return percenatgeScore;
+        }
+
         public void InitializeMaxScores()
         {
             Score[] allScores = FindObjectsOfType<Score>();

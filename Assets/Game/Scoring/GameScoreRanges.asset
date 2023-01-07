@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428b4f8ab23375b448f797dec9af86b4, type: 3}
+  m_Name: GameScoreRanges
+  m_EditorClassIdentifier: 
+  scoreMessages:
+  - percentage: 0
+    message: Terrible!  Lets face it, performance improves when you are on leave!
+  - percentage: 20
+    message: Very Poor!  Have you consider a less challenging career?
+  - percentage: 40
+    message: Poor!  A future of compulsory training courses awaits.
+  - percentage: 60
+    message: Average!  Ok, you manage not to mess things up.
+  - percentage: 80
+    message: Good!  Well done you are a rising star!
+  - percentage: 99
+    message: "Very Good!  Congratulations, you deserve a \xA35 shopping voucher. "
+  - percentage: 100
+    message: "Fantastic! Don\u2019t know how you managed that,  but clearly you are
+      not being worked hard enough."

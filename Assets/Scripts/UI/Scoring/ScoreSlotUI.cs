@@ -37,7 +37,7 @@ namespace RPG.UI.Scoring
         {
             if(isNegativeScore)
             {
-                currentScoretext.text = "-" + score.ToString();
+                currentScoretext.text = "minus " + score.ToString();
             }
             else
             {

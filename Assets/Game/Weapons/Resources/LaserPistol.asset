@@ -29,7 +29,7 @@ MonoBehaviour:
   weaponDamageAdditiveBonus: 0
   weaponToHitBonus: 0
   percentageBonus: 0
-  weaponRange: 50
+  weaponRange: 20
   isRightHanded: 1
   isRangedWeapon: 1
   timeBetweenShots: 1
