@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 367587311890682651, guid: def8d0fcbf81ec54793ae6086f205e39,
         type: 3}
       propertyPath: shoutDistance
-      value: 1
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 367587311890682651, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: aggrevationCoolDownTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1279543157077321992, guid: def8d0fcbf81ec54793ae6086f205e39,
         type: 3}
