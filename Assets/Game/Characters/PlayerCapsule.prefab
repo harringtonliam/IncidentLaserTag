@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7363055897513582681}
   - component: {fileID: 721205148173552412}
   - component: {fileID: 5020451830552331966}
+  - component: {fileID: 7363055897513582684}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -417,11 +418,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RPG.UI.HealthUI.HitEffectUI, Assembly-CSharp
+        m_MethodName: HandleHitEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RPG.UI.GameOverUI, Assembly-CSharp
+        m_MethodName: ShowGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHealthPoints: 100
+  resuscitateTime: Infinity
 --- !u!114 &3970575773896959701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa78c44b35542cf47bf7f469f9287579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  negativeScoreType: 5
 --- !u!114 &7363055897513582681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dockedItems:
   - ammunition: {fileID: 11400000, guid: bda451b207144034898188e760881c40, type: 2}
-    number: 50
+    number: 10
   - ammunition: {fileID: 0}
     number: 0
   - ammunition: {fileID: 0}
@@ -489,6 +516,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPositionTransform: {fileID: 8320361709174186191}
   FPCamera: {fileID: 0}
+--- !u!114 &7363055897513582684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642633469721194632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e77a4d3e558afb4eb202509950717b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 12
+  inventorySlots: []
 --- !u!1001 &5970846959103102347
 PrefabInstance:
   m_ObjectHideFlags: 0

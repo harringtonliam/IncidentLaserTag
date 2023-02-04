@@ -6,6 +6,8 @@ using RPG.Core;
 using RPG.Movement;
 using System;
 using RPG.Attributes;
+using RPG.Scenery;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -24,6 +26,7 @@ namespace RPG.Control
         [SerializeField] float shoutDistance = 5f;
         [SerializeField] GameObject combatTargetGameObject;
         [SerializeField] Transform transformDestination;
+        [SerializeField] Transform guardPositionTransform = null;
         [SerializeField] float guardPositionTolerance = 0.25f;
 
         GameObject player;
@@ -39,6 +42,7 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
         float timeAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
+        ChairController chairController;
 
         public AIRelationship AIRelationship
         {
@@ -60,15 +64,32 @@ namespace RPG.Control
         // Start is called before the first frame update
         void Start()
         {
-            guardPosition = transform.position;
-            guardPositionRotation = transform.rotation;
+            SetGuardPosition();
+
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
             if (capsuleCollider != null)
             {
                 AIControllerHeight = capsuleCollider.height;
-            } 
- 
+            }
+
+            chairController = GetComponent<ChairController>();
         }
+
+        private void SetGuardPosition()
+        {
+            if (guardPositionTransform == null)
+            {
+                guardPosition = transform.position;
+                Debug.Log("Set default guard position" + guardPosition.ToString());
+                guardPositionRotation = transform.rotation;
+            }
+            else
+            {
+                guardPosition = guardPositionTransform.position;
+                guardPositionRotation = guardPositionTransform.rotation;
+            }
+        }
+
 
         // Update is called once per frame
         void Update()
@@ -77,6 +98,11 @@ namespace RPG.Control
             timeSinceAggrevated += Time.deltaTime;
 
             if (GetComponent<Health>().IsDead) return;
+
+            if (chairController.IsActionHappening)
+            {
+                return;
+            }
 
             if (InteractWithCombat()) return;
             if (InteractWithSuspicsion()) return;
@@ -159,11 +185,19 @@ namespace RPG.Control
         private bool InteractWithTransformDestination()
         {
             if (transformDestination == null) return false;
-
+    
             mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
+            if (AtTransformDestination() && IsDestiationAChair() && !chairController.IsInteractingWithChair())
+            {
+                var chair = transformDestination.GetComponent<Chair>();
+                mover.Cancel();
+                chairController.SitOnChair(chair);
+            }
             return true;
 
         }
+
+
 
         private bool AtWaypoint()
         {
@@ -206,6 +240,16 @@ namespace RPG.Control
 
         private bool InteractWithGuardPosition()
         {
+
+            if (chairController.IsActionHappening) return false;
+  
+
+            if (chairController.IsSeated)
+            {
+                chairController.StandUpFromChair();
+            }
+
+            Debug.Log("Interact guard pos start movement");
             mover.StartMovementAction(guardPosition, patrolSpeedFraction);
             if (AtGuardPosition())
             {
@@ -226,6 +270,40 @@ namespace RPG.Control
                 return false;
             }
         }
+
+        private bool AtTransformDestination()
+        {
+            float distanceToDestination = Vector3.Distance(transform.position, transformDestination.position);
+
+            if (distanceToDestination <= guardPositionTolerance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        private bool IsDestiationAChair()
+        {
+            if (transformDestination.GetComponent<Chair>() != null)
+            {
+                
+                return true;
+            }
+            if (transformDestination.parent.GetComponent<Chair>() != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
         private bool InteractWithCombat()
         {

@@ -164,6 +164,7 @@ MonoBehaviour:
   shoutDistance: 5
   combatTargetGameObject: {fileID: 0}
   transformDestination: {fileID: 0}
+  guardPositionTolerance: 0.25
 --- !u!114 &6514822405935755388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,18 @@ MonoBehaviour:
   defaultWeaponConfig: {fileID: 11400000, guid: b2ef721fff219954aaf29ea46e6f1961,
     type: 2}
   target: {fileID: 0}
+--- !u!114 &8705747151357769187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842456200856558725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f901a82e27d9c0b48a61d353b6ba09cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6842456200856558727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7640056562408930543, guid: e8475a5bab6975e438b2930b595f4f68,
