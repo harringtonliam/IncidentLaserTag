@@ -80,7 +80,6 @@ namespace RPG.Control
             if (guardPositionTransform == null)
             {
                 guardPosition = transform.position;
-                Debug.Log("Set default guard position" + guardPosition.ToString());
                 guardPositionRotation = transform.rotation;
             }
             else
@@ -159,7 +158,7 @@ namespace RPG.Control
         private bool InteractWithPatrolPath()
         {
             if (patrolPath == null) return false;
-
+            
             timeAtWaypoint += Time.deltaTime;
 
             if (AtWaypoint())
@@ -174,6 +173,8 @@ namespace RPG.Control
                 return false;
             }
 
+            StandUpFromChairIfNeeded();
+
             if (timeAtWaypoint > waypointPauseTime)
             {
                 mover.StartMovementAction(GetCurrentWaypoint(), patrolSpeedFraction);
@@ -185,32 +186,28 @@ namespace RPG.Control
         private bool InteractWithTransformDestination()
         {
             if (transformDestination == null) return false;
-    
-            mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
-            if (AtTransformDestination() && IsDestiationAChair() && !chairController.IsInteractingWithChair())
+            
+            if (AtTransformDestination() && IsDestiationAChair(transformDestination) && !chairController.IsInteractingWithChair())
             {
                 var chair = transformDestination.GetComponent<Chair>();
                 mover.Cancel();
                 chairController.SitOnChair(chair);
+                return true;
             }
+            else if(AtTransformDestination())
+            {
+                return true;
+            }
+
+            StandUpFromChairIfNeeded();
+            mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
             return true;
-
         }
-
 
 
         private bool AtWaypoint()
         {
-            float distanceToWayPoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
-            if (distanceToWayPoint <= waypointTolerance)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+            return AtPosition(GetCurrentWaypoint(), waypointTolerance);
         }
 
         private void CycleWaypoint()
@@ -240,42 +237,58 @@ namespace RPG.Control
 
         private bool InteractWithGuardPosition()
         {
+            if (AtGuardPosition() && IsDestiationAChair(guardPositionTransform) && !chairController.IsInteractingWithChair())
+            {
+                var chair = guardPositionTransform.GetComponent<Chair>();
+                mover.Cancel();
+                chairController.SitOnChair(chair);
+                return true;
+            }
+            else if(AtGuardPosition())
+            {
+                transform.rotation = guardPositionRotation;
+                return true;
+            }
 
-            if (chairController.IsActionHappening) return false;
-  
+            StandUpFromChairIfNeeded();
 
+            mover.StartMovementAction(guardPosition, patrolSpeedFraction);
+            return true;
+        }
+
+        private void StandUpFromChairIfNeeded()
+        {
             if (chairController.IsSeated)
             {
                 chairController.StandUpFromChair();
             }
-
-            Debug.Log("Interact guard pos start movement");
-            mover.StartMovementAction(guardPosition, patrolSpeedFraction);
-            if (AtGuardPosition())
-            {
-                transform.rotation = guardPositionRotation;
-            }
-            return true;
         }
 
         private bool AtGuardPosition()
         {
-            float distanceToGuardPosition = Vector3.Distance(transform.position, guardPosition);
-            if (distanceToGuardPosition <= guardPositionTolerance)
+            float toleranceToUse = guardPositionTolerance;
+            if (IsDestiationAChair(guardPositionTransform))
             {
-                return true;
+                toleranceToUse = chairController.ChairPositionTolerance;
             }
-            else
-            {
-                return false;
-            }
+            return AtPosition(guardPosition, toleranceToUse);
         }
 
         private bool AtTransformDestination()
         {
-            float distanceToDestination = Vector3.Distance(transform.position, transformDestination.position);
+            float toleranceToUse = guardPositionTolerance;
+            if (IsDestiationAChair(transformDestination))
+            {
+                toleranceToUse = chairController.ChairPositionTolerance;
+            }
+            return AtPosition(transformDestination.position, toleranceToUse);
+        }
 
-            if (distanceToDestination <= guardPositionTolerance)
+        private bool AtPosition(Vector3 positionToCheck, float tolerance)
+        {
+            float distanceToDestination = Vector3.Distance(transform.position, positionToCheck);
+
+            if (distanceToDestination <= tolerance)
             {
                 return true;
             }
@@ -286,14 +299,15 @@ namespace RPG.Control
         }
 
 
-        private bool IsDestiationAChair()
+        private bool IsDestiationAChair(Transform destination)
         {
-            if (transformDestination.GetComponent<Chair>() != null)
+            if (destination == null) return false;
+            
+            if (destination.GetComponent<Chair>() != null)
             {
-                
                 return true;
             }
-            if (transformDestination.parent.GetComponent<Chair>() != null)
+            if (destination.parent != null && destination.parent.GetComponent<Chair>() != null)
             {
                 return true;
             }
@@ -307,7 +321,6 @@ namespace RPG.Control
 
         private bool InteractWithCombat()
         {
-
             Fighting fighter = GetComponent<Fighting>();
             if (combatTargetGameObject == null)
             {
@@ -316,6 +329,7 @@ namespace RPG.Control
             }
             if (IsAggrevated() && fighter.CanAttack(combatTargetGameObject))
             {
+                StandUpFromChairIfNeeded();
                 timeSinceLastSawPlayer = 0;
                 fighter.Attack(combatTargetGameObject);
                 AggrevateNearbyEnemies();
