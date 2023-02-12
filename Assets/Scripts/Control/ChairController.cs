@@ -14,6 +14,7 @@ namespace RPG.Control
         bool isActionHappening = false;
 
         Vector3 standPosition;
+        Chair currentChair;
 
 
         public bool IsSeated { get { return isSeated; } }
@@ -38,6 +39,8 @@ namespace RPG.Control
             GetComponent<Animator>().SetTrigger("sit");
             isSeated = true;
             isActionHappening = false;
+            currentChair = targetChair;
+            StartCoroutine(TriggerSeatedAnimation());
         }
 
         public void StandUpFromChair()
@@ -50,6 +53,15 @@ namespace RPG.Control
             isSeated = false;
             GetComponent<NavMeshAgent>().enabled = true;
             isActionHappening = false;
+        }
+
+        private IEnumerator TriggerSeatedAnimation()
+        {
+            yield return new WaitForSeconds( 1f);
+            if (currentChair.AnimationTrigger != string.Empty && currentChair.AnimationTrigger != "")
+            {
+                GetComponent<Animator>().SetTrigger(currentChair.AnimationTrigger);
+            }
         }
     }
 

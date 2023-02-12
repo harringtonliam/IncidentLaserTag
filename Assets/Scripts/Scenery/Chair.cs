@@ -7,25 +7,13 @@ namespace RPG.Scenery
     public class Chair : MonoBehaviour
     {
         [SerializeField] Transform sitTransform;
-
+        [SerializeField] string animationTrigger;
 
 
 
         public Transform SitTransform { get { return sitTransform; } }
-
-  
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public string AnimationTrigger { get { return animationTrigger; } }
+ 
     }
 
 }
