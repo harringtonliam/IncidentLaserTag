@@ -77,3 +77,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sitTransform: {fileID: 8216119675051476283}
+  animationTrigger: type

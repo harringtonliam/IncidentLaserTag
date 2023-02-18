@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8216119675842225342, guid: 316ff6ad63df4294ea2a0c565990ad3f,
         type: 3}
       propertyPath: m_Name
-      value: Chair Variant
+      value: Chair SM_Prop_Chair_06
       objectReference: {fileID: 0}
     - target: {fileID: 8216119675842225343, guid: 316ff6ad63df4294ea2a0c565990ad3f,
         type: 3}

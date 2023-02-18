@@ -280,6 +280,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8630872574012816186, guid: 624d8e1613f7ffd469ddf5863f7ab6a0,
+        type: 3}
+      propertyPath: animationTrigger
+      value: talk
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624d8e1613f7ffd469ddf5863f7ab6a0, type: 3}
 --- !u!4 &7259182935492512406 stripped
@@ -496,6 +501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630872574012816186, guid: 624d8e1613f7ffd469ddf5863f7ab6a0,
+        type: 3}
+      propertyPath: animationTrigger
+      value: talk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624d8e1613f7ffd469ddf5863f7ab6a0, type: 3}
@@ -1182,6 +1192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630872574012816186, guid: 624d8e1613f7ffd469ddf5863f7ab6a0,
+        type: 3}
+      propertyPath: animationTrigger
+      value: talk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624d8e1613f7ffd469ddf5863f7ab6a0, type: 3}

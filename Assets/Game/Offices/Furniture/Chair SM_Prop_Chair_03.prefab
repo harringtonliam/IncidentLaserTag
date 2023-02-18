@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8216119675842225328, guid: 316ff6ad63df4294ea2a0c565990ad3f,
-        type: 3}
-      propertyPath: animationTrigger
-      value: type
-      objectReference: {fileID: 0}
     - target: {fileID: 8216119675842225342, guid: 316ff6ad63df4294ea2a0c565990ad3f,
         type: 3}
       propertyPath: m_Name
