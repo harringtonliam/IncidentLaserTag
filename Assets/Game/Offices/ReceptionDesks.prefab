@@ -102,6 +102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chair SM_Prop_Chair_08
       objectReference: {fileID: 0}
+    - target: {fileID: 2265839371974044525, guid: af504311f608b5a439af1c0f7d00d1cd,
+        type: 3}
+      propertyPath: animationTrigger
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af504311f608b5a439af1c0f7d00d1cd, type: 3}
 --- !u!4 &2197658944377616784 stripped

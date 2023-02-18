@@ -164,6 +164,7 @@ MonoBehaviour:
   shoutDistance: 5
   combatTargetGameObject: {fileID: 0}
   transformDestination: {fileID: 0}
+  guardPositionTransform: {fileID: 0}
   guardPositionTolerance: 0.25
 --- !u!114 &6514822405935755388
 MonoBehaviour:
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f901a82e27d9c0b48a61d353b6ba09cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chairPositionTolerance: 1
 --- !u!4 &6842456200856558727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7640056562408930543, guid: e8475a5bab6975e438b2930b595f4f68,
