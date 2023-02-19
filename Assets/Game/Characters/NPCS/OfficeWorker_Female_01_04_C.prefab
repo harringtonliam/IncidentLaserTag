@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 5042534050374788558}
+      objectReference: {fileID: 5701457711839875632}
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Resuscitate
+      value: TriggerSpeach
       objectReference: {fileID: 0}
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
@@ -60,7 +60,12 @@ PrefabInstance:
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: RPG.Attributes.Health, Assembly-CSharp
+      value: RPG.Attributes.CharacterSpeach, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 497562234581500408, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
@@ -76,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 865458188636878342, guid: b672e4f2aac2c284fa131e3ea11ca401,
+        type: 3}
+      propertyPath: speachText.Array.data[0]
+      value: I thought we were friends
       objectReference: {fileID: 0}
     - target: {fileID: 1671730227198579454, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
@@ -164,6 +174,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a0c03b67baf11d4db942f193db238ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5701457711839875632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 865458188636878342, guid: b672e4f2aac2c284fa131e3ea11ca401,
+    type: 3}
+  m_PrefabInstance: {fileID: 4836052600862794806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f944d46a9d363b5409df116f72c9bc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6065840719903569608 stripped

@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 865458188636878342, guid: b672e4f2aac2c284fa131e3ea11ca401,
+        type: 3}
+      propertyPath: speachText.Array.data[0]
+      value: Fine, be like that
+      objectReference: {fileID: 0}
     - target: {fileID: 3380047883662055320, guid: b672e4f2aac2c284fa131e3ea11ca401,
         type: 3}
       propertyPath: m_Name
