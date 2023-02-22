@@ -49,6 +49,8 @@ namespace RPG.Control
 
         private void CheckBehaviour()
         {
+            if (behaviourDescriptions.Length <= 0) return;
+
             var sortedBehaviours = behaviourDescriptions.OrderBy(m => m.appliesToAllMonths).ThenByDescending(w => w.appliesToSpecificWeekDay).ThenBy(d => d.appliesToAllDays).ToArray();
             for (int i = 0; i < sortedBehaviours.Length; i++)
             {

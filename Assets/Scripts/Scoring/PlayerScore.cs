@@ -83,7 +83,7 @@ namespace RPG.Scoring
             }
         }
 
-        private void AddToMaxScore(ScoreType scoreType, int points)
+        public void AddToMaxScore(ScoreType scoreType, int points)
         {
             for (int i = 0; i < currentScores.Length; i++)
             {
@@ -108,7 +108,7 @@ namespace RPG.Scoring
         }
 
 
-        private void InvokeScoreUpdated()
+        public void InvokeScoreUpdated()
         {
             if (scoreUpdated != null)
             {
