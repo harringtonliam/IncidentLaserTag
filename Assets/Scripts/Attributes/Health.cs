@@ -138,9 +138,10 @@ namespace RPG.Attributes
             Animator animator = GetComponent<Animator>();
             if (animator != null)
             {
+                animator.ResetTrigger("stand");
                 animator.SetTrigger("resuscitate");
             }
-            yield return new WaitForSeconds(resuscitateTime*10f);
+            yield return new WaitForSeconds(resuscitateTime);
             isDead = false;
 
 
