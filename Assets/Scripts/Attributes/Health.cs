@@ -1,6 +1,7 @@
 using UnityEngine;
 using RPG.Saving;
 using RPG.Core;
+using RPG.Control;
 using UnityEngine.Events;
 using System;
 using System.Collections;
@@ -80,12 +81,10 @@ namespace RPG.Attributes
             }
         }
 
-
-
-
         public void Die()
         {
             if (isDead) return;
+            StandUpFromChairIfNeeded();
             isDead = true;
             onDie.Invoke();
             Animator animator = GetComponent<Animator>();
@@ -94,9 +93,6 @@ namespace RPG.Attributes
                 animator.SetTrigger("die");
             }
 
-
-            
-
             ActionScheduler actionScheduler = GetComponent<ActionScheduler>();
             if (actionScheduler != null)
             {
@@ -104,10 +100,19 @@ namespace RPG.Attributes
             }
         }
 
+        private void StandUpFromChairIfNeeded()
+        {
+            ChairController chairController = GetComponent<ChairController>();
+            if(chairController== null) return;
+            if(chairController.IsSeated)
+            {
+                chairController.StandUpFromChair();
+            }
+        }
+
         public void Resuscitate()
         {
             StartCoroutine(UndoDie());
-
         }
 
         public void DestroyOnDeath()
@@ -135,7 +140,9 @@ namespace RPG.Attributes
             {
                 animator.SetTrigger("resuscitate");
             }
+            yield return new WaitForSeconds(resuscitateTime*10f);
             isDead = false;
+
 
         }
 

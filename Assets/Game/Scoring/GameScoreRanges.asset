@@ -20,7 +20,7 @@ MonoBehaviour:
   - percentage: 40
     message: Poor!  A future of compulsory training courses awaits.
   - percentage: 60
-    message: Average!  Ok, you manage not to mess things up.
+    message: Average!  Ok, you manage not to mess things up too often.
   - percentage: 80
     message: Good!  Well done you are a rising star!
   - percentage: 99

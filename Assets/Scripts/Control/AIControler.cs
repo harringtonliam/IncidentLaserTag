@@ -196,6 +196,7 @@ namespace RPG.Control
             }
             else if(AtTransformDestination())
             {
+                transform.rotation = transformDestination.rotation;
                 return true;
             }
 
