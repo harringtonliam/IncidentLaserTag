@@ -133,6 +133,16 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f45195ecf5a02de429e9079c2974c097, type: 3}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558724, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_Speed
