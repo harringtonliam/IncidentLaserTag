@@ -12,6 +12,7 @@ namespace RPG.UI
     {
         [SerializeField] IncidentSpawner incidentSpawner;
         [SerializeField] TextMeshProUGUI messageDisplayText;
+        [SerializeField] GameObject newIncidentObject;
         [SerializeField] string messageText = "New Incident {0} Detected!";
         [SerializeField] float messageDisplayTime = 2f;
 
@@ -19,6 +20,7 @@ namespace RPG.UI
         void Start()
         {
             messageDisplayText.text = "";
+            newIncidentObject.SetActive(false);
             incidentSpawner.incidentSpawned += TriggerMessage;
         }
 
@@ -33,10 +35,11 @@ namespace RPG.UI
             int randomIncidentNumber = Random.Range(1000, 100000);
             string incidentNumberText = "INC" + randomIncidentNumber.ToString("0000000");
             string newMessageText = string.Format(messageText, incidentNumberText);
-
+            newIncidentObject.SetActive(true);
             messageDisplayText.text = newMessageText;
             yield return new WaitForSeconds(messageDisplayTime);
             messageDisplayText.text = "";
+            newIncidentObject.SetActive(false);
         }
     }
 

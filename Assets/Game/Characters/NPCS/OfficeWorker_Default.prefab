@@ -291,6 +291,11 @@ PrefabInstance:
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8705747151357769187, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: chairPositionTolerance
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8944051751349320987, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: speachText.Array.size
