@@ -16,8 +16,10 @@ namespace RPG.Attributes
         [SerializeField] float maxHealthPoints = 10f;
         [Tooltip("Time in Minutes") ]
         [SerializeField] float resuscitateTime = Mathf.Infinity;
+        [SerializeField] float deathColiderHeightProportion = 0.5f;
 
         public event Action healthUpdated;
+        ColliderController colliderController;
 
 
         bool isDead = false;
@@ -36,6 +38,7 @@ namespace RPG.Attributes
             {
                 healthUpdated();
             }
+            colliderController = GetComponent<ColliderController>();
         }
 
 
@@ -91,12 +94,22 @@ namespace RPG.Attributes
             if (animator != null)
             {
                 animator.SetTrigger("die");
+                ResizeCollider();
+
             }
 
             ActionScheduler actionScheduler = GetComponent<ActionScheduler>();
             if (actionScheduler != null)
             {
                 actionScheduler.CancelCurrentAction();
+            }
+        }
+
+        private void ResizeCollider()
+        {
+            if (colliderController != null)
+            {
+                colliderController.ResizeCollider(deathColiderHeightProportion);
             }
         }
 
@@ -121,16 +134,6 @@ namespace RPG.Attributes
 
         }
 
-        private void ResizeCapsuleColliderOnDeath()
-        {
-            CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
-            if (capsuleCollider != null)
-            {
-                capsuleCollider.height = capsuleCollider.height / 10f;
-                capsuleCollider.center = capsuleCollider.center / 4f;
-            }
-        }
-
         private IEnumerator UndoDie()
         {
             yield return new WaitForSeconds(resuscitateTime*60f);
@@ -140,6 +143,8 @@ namespace RPG.Attributes
             {
                 animator.ResetTrigger("stand");
                 animator.SetTrigger("resuscitate");
+                ResetCollider();
+
             }
             yield return new WaitForSeconds(resuscitateTime);
             isDead = false;
@@ -147,6 +152,13 @@ namespace RPG.Attributes
 
         }
 
+        private void ResetCollider()
+        {
+            if (colliderController != null)
+            {
+                colliderController.ResetCollider();
+            }
+        }
 
         public object CaptureState()
         {

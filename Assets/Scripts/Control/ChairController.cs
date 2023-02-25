@@ -9,17 +9,26 @@ namespace RPG.Control
     public class ChairController : MonoBehaviour
     {
         [SerializeField] float chairPositionTolerance = 0.9f;
+        [SerializeField] float seatedColiderHeightProportion = 0.75f;
 
-        [SerializeField] bool isSeated = false;
+
+        bool isSeated = false;
         bool isActionHappening = false;
 
         Vector3 standPosition;
         Chair currentChair;
+        ColliderController colliderController;
 
 
         public bool IsSeated { get { return isSeated; } }
         public bool IsActionHappening { get { return isActionHappening; } }
         public float ChairPositionTolerance { get { return chairPositionTolerance; } }
+
+
+        private void Start()
+        {
+            colliderController = GetComponent<ColliderController>();
+        }
 
         public bool IsInteractingWithChair()
         {
@@ -39,6 +48,7 @@ namespace RPG.Control
             transform.rotation = targetChair.SitTransform.rotation;
             //Debug.Log("Triggering sit Animation");
             GetComponent<Animator>().SetTrigger("sit");
+            colliderController.ResizeCollider(seatedColiderHeightProportion);
             isSeated = true;
             isActionHappening = false;
             currentChair = targetChair;
@@ -53,6 +63,7 @@ namespace RPG.Control
             isActionHappening = true;
             //Debug.Log("Triggering stand Animation");
             GetComponent<Animator>().SetTrigger("stand");
+            colliderController.ResetCollider();
             transform.position = standPosition;
             isSeated = false;
             currentChair.MakeChairOccuiped(false);

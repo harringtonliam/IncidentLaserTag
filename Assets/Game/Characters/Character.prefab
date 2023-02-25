@@ -432,7 +432,8 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
-  healtPoints: 10
+  maxHealthPoints: 10
+  resuscitateTime: Infinity
 --- !u!1 &7640056562460370170
 GameObject:
   m_ObjectHideFlags: 0
