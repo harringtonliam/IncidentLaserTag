@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: footStepSound
+      value: 
+      objectReference: {fileID: 1279543156030411247}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: m_audioClip
@@ -142,6 +147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558724, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -319,6 +329,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004f6812fc49fb948b3d33b825fc5599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1279543156030411247 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+    type: 3}
+  m_PrefabInstance: {fileID: 5707345033483089292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1279543157077321995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6842456200856558727, guid: fa3ace2be7f368e42a8e7f2401fec076,
