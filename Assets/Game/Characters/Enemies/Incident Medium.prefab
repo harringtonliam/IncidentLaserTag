@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: aggrevationCoolDownTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 397536970770349344, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 6.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1279543157077321992, guid: def8d0fcbf81ec54793ae6086f205e39,
         type: 3}
       propertyPath: m_Speed
@@ -97,5 +102,10 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8816829674762067163, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5846f1c3c4e5f1e42b95451831844600, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def8d0fcbf81ec54793ae6086f205e39, type: 3}

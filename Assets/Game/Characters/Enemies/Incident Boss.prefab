@@ -106,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: chaseDistance
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: suspicionTime
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -126,12 +126,12 @@ PrefabInstance:
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: aggrevationCoolDownTime
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: maxSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}

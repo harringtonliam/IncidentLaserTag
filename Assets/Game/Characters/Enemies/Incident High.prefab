@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: maxHealthPoints
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2838313173662623147, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 6.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
       propertyPath: shoutDistance
@@ -106,6 +111,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394165217813489994, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d29677146096e2e44a5d0dc42b09e592, type: 2}
+    - target: {fileID: 6436150640435088006, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436493966886695440, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4, type: 3}
