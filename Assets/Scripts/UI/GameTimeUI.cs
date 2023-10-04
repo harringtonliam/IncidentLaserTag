@@ -18,6 +18,7 @@ namespace RPG.UI
         {
             gameTimeContoller = FindObjectOfType<GameTimeContoller>();
             gameTimeContoller.hourHasPassed += DisplayGameTime;
+            DisplayGameTime();
         }
 
         private void DisplayGameTime()

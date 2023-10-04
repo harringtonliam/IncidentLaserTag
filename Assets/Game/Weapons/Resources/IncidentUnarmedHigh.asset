@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97138aaf702dd04fb324744a750598d, type: 3}
+  m_Name: IncidentUnarmedHigh
+  m_EditorClassIdentifier: 
+  itemID: 1d1a0b87-fe52-4eb7-acbf-5e917c04d070
+  displayName: 
+  description: 
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  isStackable: 0
+  maxNumberInStack: 20
+  allowedEquipLocation: 3
+  weaponOverrideController: {fileID: 0}
+  equipedPrefab: {fileID: 0}
+  ammunitionType: 0
+  weaponDamage: 8
+  weaponDamageAdditiveBonus: 0
+  weaponToHitBonus: 0
+  percentageBonus: 0
+  weaponRange: 2
+  isRightHanded: 1
+  isRangedWeapon: 0
+  timeBetweenShots: 0.5

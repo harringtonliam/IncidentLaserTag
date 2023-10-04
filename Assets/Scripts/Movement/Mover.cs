@@ -56,6 +56,11 @@ namespace RPG.Movement
             return true;
         }
 
+        public void TriggerRoll()
+        {
+            GetComponent<Animator>().SetTrigger("roll");
+           // GetComponent<Animator>().SetTrigger("stoproll");
+        }
 
 
         public void StartMovementAction(Vector3 destination, float speedFraction)
