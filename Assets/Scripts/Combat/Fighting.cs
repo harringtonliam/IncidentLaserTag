@@ -19,14 +19,14 @@ namespace RPG.Combat
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeaponConfig = null;
         [SerializeField] Health target;
+        [SerializeField] bool isDebuggingOn = false;
 
         float timeSinceLastAttack = Mathf.Infinity;
         WeaponConfig currentWeaponConfig;
         Weapon currentWeapon;
         WeaponStore weaponStore;
         AmmunitionStore ammoStore;
-
-
+        Mover mover;
 
         private void Awake()
         {
@@ -48,17 +48,14 @@ namespace RPG.Combat
 
             ammoStore = GetComponent<AmmunitionStore>();
 
+            mover = GetComponent<Mover>();
         }
-
-
 
         // Update is called once per frame
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-
-            Mover mover = GetComponent<Mover>();
-
+          
             if (target != null)
             {
                 if (target.IsDead)
@@ -136,23 +133,14 @@ namespace RPG.Combat
                 currentWeapon.OnHit();
             }
 
-          
             if (currentWeaponConfig.IsRangedWeapon && !CheckLineOfSight())
             {
-
                 return;
             }
 
             float calculatedDamage = 0;
-            
-
-
-                calculatedDamage = currentWeaponConfig.CalcWeaponDamage(); 
-
-
-
-
-                target.TakeDamage(calculatedDamage);
+            calculatedDamage = currentWeaponConfig.CalcWeaponDamage(); 
+            target.TakeDamage(calculatedDamage);
   
         }
 
@@ -222,11 +210,6 @@ namespace RPG.Combat
         }
 
  
-
-
-
-
-
         public void Shoot()
         {
             Hit();
@@ -239,10 +222,9 @@ namespace RPG.Combat
         }
 
 
-
         public void Attack(GameObject combatTarget)
         {
-
+            DebugMessage("Fighting Attack " + combatTarget.name);
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>(); ;
         }
@@ -251,24 +233,23 @@ namespace RPG.Combat
         {
             if (combatTarget == null) return false;
 
-
-            if (GetComponent<Mover>() != null)
+            if (mover != null)
             {
-                if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position)
+                if (!mover.CanMoveTo(combatTarget.transform.position)
                         && !GetIsInRange(combatTarget.transform))
                 {
+
                     return false;
                 }
             }
 
-            if (GetComponent<Mover>() == null)
+            if (mover == null)
             {
                 if (!GetIsInRange(combatTarget.transform))
                 {
                     return false;
                 }
             }
-
 
 
             Health targetHealth = combatTarget.GetComponent<Health>();
@@ -286,9 +267,9 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
-            if (GetComponent<Mover>() != null)
+            if (mover == null)
             {
-                GetComponent<Mover>().Cancel();
+                mover.Cancel();
             }
            
         }
@@ -321,6 +302,14 @@ namespace RPG.Combat
                 EquipWeapon(weapon);
             }
 
+        }
+
+        private void DebugMessage(string message)
+        {
+            if (isDebuggingOn)
+            {
+                Debug.Log(message + " " + gameObject.name);
+            }
         }
 
     }

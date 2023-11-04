@@ -14,6 +14,7 @@ namespace RPG.Movement
         [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxPathLength = 40f;
         [SerializeField] AudioSource footStepSound;
+        [SerializeField] bool isDebuggingOn = false;
 
         NavMeshAgent navMeshAgent;
         Health health;
@@ -56,11 +57,11 @@ namespace RPG.Movement
             return true;
         }
 
-        public void TriggerRoll()
-        {
-            GetComponent<Animator>().SetTrigger("roll");
-           // GetComponent<Animator>().SetTrigger("stoproll");
-        }
+        //public void TriggerRoll()
+        //{
+        //    GetComponent<Animator>().SetTrigger("roll");
+        //   // GetComponent<Animator>().SetTrigger("stoproll");
+        //}
 
 
         public void StartMovementAction(Vector3 destination, float speedFraction)
@@ -72,6 +73,7 @@ namespace RPG.Movement
 
         public void MoveTo(Vector3 destination, float speedFraction)
         {
+            DebugMessage("MoveTo " + destination.x + " " + destination.y + " " + destination.z + " " + speedFraction.ToString());
             if (!navMeshAgent.enabled) return;
             navMeshAgent.destination = destination;
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
@@ -137,6 +139,14 @@ namespace RPG.Movement
             }
 
             return totalPathLength;
+        }
+
+        private void DebugMessage(string message)
+        {
+            if (isDebuggingOn)
+            {
+                Debug.Log(message + " " + gameObject.name);
+            }
         }
     }
 }

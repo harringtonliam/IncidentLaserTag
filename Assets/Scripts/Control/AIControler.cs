@@ -28,6 +28,7 @@ namespace RPG.Control
         [SerializeField] Transform transformDestination;
         [SerializeField] Transform guardPositionTransform = null;
         [SerializeField] float guardPositionTolerance = 0.25f;
+        [SerializeField] bool isDebuggingOn = false;
 
         GameObject player;
         float playerHeight = 0f;
@@ -42,6 +43,8 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
         float timeAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
+        bool isStartingNewPatrolPath = false;
+        bool isWayPointCycled = false;
         ChairController chairController;
 
         public AIRelationship AIRelationship
@@ -65,6 +68,10 @@ namespace RPG.Control
         void Start()
         {
             SetGuardPosition();
+            if (patrolPath != null)
+            {
+                isStartingNewPatrolPath = true;
+            }
 
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
             if (capsuleCollider != null)
@@ -112,6 +119,7 @@ namespace RPG.Control
 
         public void Aggrevate()
         {
+            DebugMessage("Aggrivated ");
             timeSinceAggrevated = 0;
         }
 
@@ -132,6 +140,7 @@ namespace RPG.Control
             if (patrolPath == newPatrolPath) return;
 
             patrolPath = newPatrolPath;
+            isStartingNewPatrolPath = true;
             currentWaypointIndex = 0;
             this.doPatrolPathOnce = doPatrolPathOnce;
         }
@@ -165,6 +174,7 @@ namespace RPG.Control
             {
                 timeAtWaypoint = 0;
                 CycleWaypoint();
+               
             }
 
             if (currentWaypointIndex < 0)
@@ -175,9 +185,14 @@ namespace RPG.Control
 
             StandUpFromChairIfNeeded();
 
-            if (timeAtWaypoint > waypointPauseTime)
+            if ((timeAtWaypoint > waypointPauseTime  && isWayPointCycled) || isStartingNewPatrolPath)
             {
                 mover.StartMovementAction(GetCurrentWaypoint(), patrolSpeedFraction);
+                isWayPointCycled = false;
+            }
+            if (isStartingNewPatrolPath)
+            {
+                isStartingNewPatrolPath = false;
             }
 
             return true;
@@ -208,12 +223,13 @@ namespace RPG.Control
 
         private bool AtWaypoint()
         {
-            return AtPosition(GetCurrentWaypoint(), waypointTolerance);
+            return  AtPosition(GetCurrentWaypoint(), waypointTolerance);
         }
 
         private void CycleWaypoint()
         {
             currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex, doPatrolPathOnce);
+            isWayPointCycled = true;
         }
 
         private Vector3 GetCurrentWaypoint()
@@ -322,6 +338,7 @@ namespace RPG.Control
 
         private bool InteractWithCombat()
         {
+
             Fighting fighter = GetComponent<Fighting>();
             if (combatTargetGameObject == null)
             {
@@ -330,6 +347,7 @@ namespace RPG.Control
             }
             if (IsAggrevated() && fighter.CanAttack(combatTargetGameObject))
             {
+                DebugMessage("Interact with combat can attack and is agrrivated");
                 StandUpFromChairIfNeeded();
                 timeSinceLastSawPlayer = 0;
                 fighter.Attack(combatTargetGameObject);
@@ -406,6 +424,14 @@ namespace RPG.Control
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        }
+
+        private void DebugMessage(string message)
+        {
+            if (isDebuggingOn)
+            {
+                Debug.Log(message + " " + gameObject.name);
+            }
         }
     }
 }
