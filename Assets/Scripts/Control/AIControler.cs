@@ -131,7 +131,7 @@ namespace RPG.Control
                 TriggerRoll();
                 isRollEnabled = false;
             }
-            else if(Mathf.Approximately(speed, mover.MaxSpeed)  && isJumpEnabled && IsAggrevated() && Mathf.Approximately(DistanceToCombatTarget(), jumpDistanceFromTarget))
+            else if(Mathf.Approximately(speed, mover.MaxSpeed) && isJumpEnabled && IsAggrevated())// && Mathf.Approximately(DistanceToCombatTarget(), jumpDistanceFromTarget))
             {
                 TriggerJump();
                 isJumpEnabled = false;
