@@ -28,6 +28,11 @@ namespace RPG.Control
         [SerializeField] Transform transformDestination;
         [SerializeField] Transform guardPositionTransform = null;
         [SerializeField] float guardPositionTolerance = 0.25f;
+        [SerializeField] bool isRollEnabled = false;
+        [SerializeField] float minRollDistanceFromTarget = 6f;
+        [SerializeField] bool isJumpEnabled = false;
+        [SerializeField] float jumpDistanceFromTarget = 4f;
+
         [SerializeField] bool isDebuggingOn = false;
 
         GameObject player;
@@ -43,7 +48,6 @@ namespace RPG.Control
         float timeSinceAggrevated = Mathf.Infinity;
         float timeAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
-        bool isStartingNewPatrolPath = false;
         bool isWayPointCycled = false;
         ChairController chairController;
 
@@ -70,7 +74,7 @@ namespace RPG.Control
             SetGuardPosition();
             if (patrolPath != null)
             {
-                isStartingNewPatrolPath = true;
+                isWayPointCycled = true;
             }
 
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
@@ -110,6 +114,8 @@ namespace RPG.Control
                 return;
             }
 
+            TriggerAnimations();
+
             if (InteractWithCombat()) return;
             if (InteractWithSuspicsion()) return;
             if (InteractWithPatrolPath()) return;
@@ -117,9 +123,23 @@ namespace RPG.Control
             if (InteractWithGuardPosition()) return;
         }
 
+        private void TriggerAnimations()
+        {
+            var speed = mover.GetSpeed();
+            if (Mathf.Approximately(speed, mover.MaxSpeed) && isRollEnabled  && IsAggrevated()  && DistanceToCombatTarget() > minRollDistanceFromTarget)
+            {
+                TriggerRoll();
+                isRollEnabled = false;
+            }
+            else if(Mathf.Approximately(speed, mover.MaxSpeed)  && isJumpEnabled && IsAggrevated() && Mathf.Approximately(DistanceToCombatTarget(), jumpDistanceFromTarget))
+            {
+                TriggerJump();
+                isJumpEnabled = false;
+            }
+        }
+
         public void Aggrevate()
         {
-            DebugMessage("Aggrivated ");
             timeSinceAggrevated = 0;
         }
 
@@ -140,7 +160,7 @@ namespace RPG.Control
             if (patrolPath == newPatrolPath) return;
 
             patrolPath = newPatrolPath;
-            isStartingNewPatrolPath = true;
+            isWayPointCycled = true;
             currentWaypointIndex = 0;
             this.doPatrolPathOnce = doPatrolPathOnce;
         }
@@ -185,14 +205,10 @@ namespace RPG.Control
 
             StandUpFromChairIfNeeded();
 
-            if ((timeAtWaypoint > waypointPauseTime  && isWayPointCycled) || isStartingNewPatrolPath)
+            if ((timeAtWaypoint > waypointPauseTime && isWayPointCycled))
             {
                 mover.StartMovementAction(GetCurrentWaypoint(), patrolSpeedFraction);
                 isWayPointCycled = false;
-            }
-            if (isStartingNewPatrolPath)
-            {
-                isStartingNewPatrolPath = false;
             }
 
             return true;
@@ -418,7 +434,16 @@ namespace RPG.Control
             return lineOfSightOk;
         }
 
+        public void TriggerRoll()
+        {
+            GetComponent<Animator>().SetTrigger("roll");
+        }
 
+        public void TriggerJump()
+        {
+            DebugMessage("JUmp Triggered");
+            GetComponent<Animator>().SetTrigger("jump");
+        }
 
         void OnDrawGizmosSelected()
         {

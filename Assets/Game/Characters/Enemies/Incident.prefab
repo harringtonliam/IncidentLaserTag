@@ -29,6 +29,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
+      propertyPath: isJumpEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: isRollEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
       propertyPath: shoutDistance
       value: 1.5
       objectReference: {fileID: 0}
@@ -36,6 +46,16 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointPauseTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: jumpDistanceFromTarget
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: isRollEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558724, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -131,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8573354207567203045, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}

@@ -14,10 +14,13 @@ namespace RPG.Movement
         [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxPathLength = 40f;
         [SerializeField] AudioSource footStepSound;
+
         [SerializeField] bool isDebuggingOn = false;
 
         NavMeshAgent navMeshAgent;
         Health health;
+
+        public float MaxSpeed {  get { return maxSpeed; } }
 
         // Start is called before the first frame update
         void Start()
@@ -37,12 +40,9 @@ namespace RPG.Movement
 
         private void UpdateAnimator()
         {
-            //Global Velocity
-            Vector3 velocity = navMeshAgent.velocity;
-            //local character velocity 
-            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-            //forward speed
-            float speed = localVelocity.z;
+            var speed = GetSpeed();
+
+
 
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
@@ -57,11 +57,18 @@ namespace RPG.Movement
             return true;
         }
 
-        //public void TriggerRoll()
-        //{
-        //    GetComponent<Animator>().SetTrigger("roll");
-        //   // GetComponent<Animator>().SetTrigger("stoproll");
-        //}
+        public float GetSpeed()
+        {
+            //Global Velocity
+            Vector3 velocity = navMeshAgent.velocity;
+            //local character velocity 
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            //forward speed
+            float speed = localVelocity.z;
+            return speed;
+        }
+
+
 
 
         public void StartMovementAction(Vector3 destination, float speedFraction)
@@ -140,6 +147,9 @@ namespace RPG.Movement
 
             return totalPathLength;
         }
+
+
+
 
         private void DebugMessage(string message)
         {
