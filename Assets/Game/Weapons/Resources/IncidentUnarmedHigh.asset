@@ -20,7 +20,8 @@ MonoBehaviour:
   isStackable: 0
   maxNumberInStack: 20
   allowedEquipLocation: 3
-  weaponOverrideController: {fileID: 0}
+  weaponOverrideController: {fileID: 22100000, guid: 92ffada41cfb69d4b9b1e6c5c8320127,
+    type: 2}
   equipedPrefab: {fileID: 0}
   ammunitionType: 0
   weaponDamage: 8

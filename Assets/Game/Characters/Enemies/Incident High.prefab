@@ -29,6 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
+      propertyPath: isRollEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
       propertyPath: shoutDistance
       value: 2
       objectReference: {fileID: 0}

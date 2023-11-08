@@ -30,8 +30,7 @@ namespace RPG.Control
         [SerializeField] float guardPositionTolerance = 0.25f;
         [SerializeField] bool isRollEnabled = false;
         [SerializeField] float minRollDistanceFromTarget = 6f;
-        [SerializeField] bool isJumpEnabled = false;
-        [SerializeField] float jumpDistanceFromTarget = 4f;
+
 
         [SerializeField] bool isDebuggingOn = false;
 
@@ -130,11 +129,6 @@ namespace RPG.Control
             {
                 TriggerRoll();
                 isRollEnabled = false;
-            }
-            else if(Mathf.Approximately(speed, mover.MaxSpeed) && isJumpEnabled && IsAggrevated())// && Mathf.Approximately(DistanceToCombatTarget(), jumpDistanceFromTarget))
-            {
-                TriggerJump();
-                isJumpEnabled = false;
             }
         }
 
@@ -439,11 +433,6 @@ namespace RPG.Control
             GetComponent<Animator>().SetTrigger("roll");
         }
 
-        public void TriggerJump()
-        {
-            DebugMessage("JUmp Triggered");
-            GetComponent<Animator>().SetTrigger("jump");
-        }
 
         void OnDrawGizmosSelected()
         {

@@ -158,6 +158,8 @@ namespace RPG.Movement
                 Debug.Log(message + " " + gameObject.name);
             }
         }
+
+        
     }
 }
     

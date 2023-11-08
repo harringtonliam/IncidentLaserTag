@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97138aaf702dd04fb324744a750598d, type: 3}
   m_Name: IncidentUnarmedCritical
   m_EditorClassIdentifier: 
-  itemID: Critical
+  itemID: 4d7c9a0d-e781-4cf4-b45f-df9e97740671
   displayName: 
   description: 
   icon: {fileID: 0}
@@ -20,7 +20,8 @@ MonoBehaviour:
   isStackable: 0
   maxNumberInStack: 20
   allowedEquipLocation: 3
-  weaponOverrideController: {fileID: 0}
+  weaponOverrideController: {fileID: 22100000, guid: f0e632e30d5f58642b885e1ddc8a784b,
+    type: 2}
   equipedPrefab: {fileID: 0}
   ammunitionType: 0
   weaponDamage: 8
