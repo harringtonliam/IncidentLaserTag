@@ -123,13 +123,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
       propertyPath: aggrevationCoolDownTime
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: maxSpeed
-      value: 6.6
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558724, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}

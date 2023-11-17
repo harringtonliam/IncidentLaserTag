@@ -397,6 +397,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4815388337341360514, guid: 4fcd6f298967467498ccd783f7f3b964,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6aea9577fd660134b92bd6b483f2d5db,
+        type: 3}
     - target: {fileID: 4815388338596511274, guid: 4fcd6f298967467498ccd783f7f3b964,
         type: 3}
       propertyPath: sceneContoller

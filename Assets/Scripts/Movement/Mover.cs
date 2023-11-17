@@ -81,6 +81,7 @@ namespace RPG.Movement
         public void MoveTo(Vector3 destination, float speedFraction)
         {
             DebugMessage("MoveTo " + destination.x + " " + destination.y + " " + destination.z + " " + speedFraction.ToString());
+            if (health.IsDead) return;
             if (!navMeshAgent.enabled) return;
             navMeshAgent.destination = destination;
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
@@ -108,7 +109,7 @@ namespace RPG.Movement
         public void Cancel()
         {
             if (!navMeshAgent.enabled) return;
-            navMeshAgent.isStopped = true;
+             navMeshAgent.isStopped = true;
         }
 
 

@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: suspicionTime
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5345067592215570071, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: maxSpeed
-      value: 4
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -140,18 +140,23 @@ PrefabInstance:
       objectReference: {fileID: 1279543156030411247}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
+      propertyPath: Pan2D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: MaxDistance
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: MinDistance
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -162,6 +167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rolloffMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
@@ -176,6 +186,11 @@ PrefabInstance:
     - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842456199772824675, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842456200856558724, guid: fa3ace2be7f368e42a8e7f2401fec076,

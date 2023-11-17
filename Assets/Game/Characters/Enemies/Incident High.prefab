@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 2838313173662623147, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
       propertyPath: maxSpeed
-      value: 6.4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}
@@ -52,6 +52,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waypointPauseTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
+        type: 3}
+      propertyPath: patrolSpeedFraction
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 2881755902863362960, guid: 9ce16d71b27a9dd48b2701ad1e0e6af4,
         type: 3}

@@ -54,6 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
         type: 3}
+      propertyPath: maxSpeed
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382019075281029292, guid: fa3ace2be7f368e42a8e7f2401fec076,
+        type: 3}
       propertyPath: isRollEnabled
       value: 1
       objectReference: {fileID: 0}

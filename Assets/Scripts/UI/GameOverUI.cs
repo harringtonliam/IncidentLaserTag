@@ -19,6 +19,7 @@ namespace RPG.UI
         [SerializeField] string compeleteMessage;
         [SerializeField] TextMeshProUGUI performanceAssessmentText;
         [SerializeField] ScoreRanges scoreRanges;
+        [SerializeField] float endOfGameGameOverDelay = 3f;
 
         // Start is called before the first frame update
         void Start()
@@ -38,6 +39,17 @@ namespace RPG.UI
 
             ShowResultMessage();
             ShowPerformanceAssessment();
+        }
+
+        public void BossDeathGameOver()
+        {
+            StartCoroutine(DelayedGameOver());
+        }
+
+        public IEnumerator DelayedGameOver()
+        {
+            yield return new WaitForSeconds(endOfGameGameOverDelay);
+            ShowGameOver();
         }
 
         private void ShowResultMessage()

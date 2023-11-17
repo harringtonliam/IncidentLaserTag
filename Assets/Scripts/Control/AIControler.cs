@@ -49,6 +49,7 @@ namespace RPG.Control
         int currentWaypointIndex = 0;
         bool isWayPointCycled = false;
         ChairController chairController;
+        ActionScheduler actionSchduler;
 
         public AIRelationship AIRelationship
         {
@@ -83,6 +84,7 @@ namespace RPG.Control
             }
 
             chairController = GetComponent<ChairController>();
+            actionSchduler = GetComponent<ActionScheduler>();
         }
 
         private void SetGuardPosition()
@@ -106,7 +108,13 @@ namespace RPG.Control
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceAggrevated += Time.deltaTime;
 
-            if (GetComponent<Health>().IsDead) return;
+            if (GetComponent<Health>().IsDead)
+            {
+                mover.MoveTo(transform.position, 0.01f);
+                actionSchduler.CancelCurrentAction();
+
+                return;
+            }
 
             if (chairController.IsActionHappening)
             {
@@ -252,7 +260,6 @@ namespace RPG.Control
         {
             if (timeSinceLastSawPlayer < suspicionTime )
             {
-                ActionScheduler actionSchduler = GetComponent<ActionScheduler>();
                 actionSchduler.CancelCurrentAction();
                 return true;
             }

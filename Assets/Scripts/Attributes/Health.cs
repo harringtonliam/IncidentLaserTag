@@ -131,7 +131,6 @@ namespace RPG.Attributes
         public void DestroyOnDeath()
         {
             Destroy(gameObject, 1f);
-
         }
 
         private IEnumerator UndoDie()

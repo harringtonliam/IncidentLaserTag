@@ -27,6 +27,7 @@ namespace RPG.Combat
         WeaponStore weaponStore;
         AmmunitionStore ammoStore;
         Mover mover;
+        Health gameObjectHealth;
 
         private void Awake()
         {
@@ -49,6 +50,7 @@ namespace RPG.Combat
             ammoStore = GetComponent<AmmunitionStore>();
 
             mover = GetComponent<Mover>();
+            gameObjectHealth = GetComponent<Health>();
         }
 
         // Update is called once per frame
@@ -59,6 +61,11 @@ namespace RPG.Combat
             if (target != null)
             {
                 if (target.IsDead)
+                {
+                    return;
+                }
+
+                if(gameObjectHealth.IsDead)
                 {
                     return;
                 }
