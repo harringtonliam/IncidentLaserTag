@@ -19,7 +19,7 @@ namespace RPG.InventoryControl
 
             if (target != null)
             {
-                mover.MoveTo(target.transform.position, 1f); ;
+                mover.MoveTo(target.transform.position, 1f, "container opener"); ;
                 if (GetIsInRange())
                 {
                     mover.Cancel();

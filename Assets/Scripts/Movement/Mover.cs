@@ -75,12 +75,12 @@ namespace RPG.Movement
         {
             if (!navMeshAgent.enabled) return;
             GetComponent<ActionScheduler>().StartAction(this);
-            MoveTo(destination, speedFraction);
+            MoveTo(destination, speedFraction, "start movement action");
         }
 
-        public void MoveTo(Vector3 destination, float speedFraction)
+        public void MoveTo(Vector3 destination, float speedFraction, string caller)
         {
-            DebugMessage("MoveTo " + destination.x + " " + destination.y + " " + destination.z + " " + speedFraction.ToString());
+            DebugMessage("MoveTo " + destination.x + " " + destination.y + " " + destination.z + " " + speedFraction.ToString() + " caller  " + caller);
             if (health.IsDead) return;
             if (!navMeshAgent.enabled) return;
             navMeshAgent.destination = destination;
@@ -108,6 +108,7 @@ namespace RPG.Movement
 
         public void Cancel()
         {
+            DebugMessage("Mover cancel");
             if (!navMeshAgent.enabled) return;
              navMeshAgent.isStopped = true;
         }

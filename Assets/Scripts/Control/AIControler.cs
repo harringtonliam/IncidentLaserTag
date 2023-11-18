@@ -48,6 +48,7 @@ namespace RPG.Control
         float timeAtWaypoint = Mathf.Infinity;
         int currentWaypointIndex = 0;
         bool isWayPointCycled = false;
+        bool isTransformDestinationChanged;
         ChairController chairController;
         ActionScheduler actionSchduler;
 
@@ -76,6 +77,7 @@ namespace RPG.Control
             {
                 isWayPointCycled = true;
             }
+            isTransformDestinationChanged = true;
 
             CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
             if (capsuleCollider != null)
@@ -110,9 +112,7 @@ namespace RPG.Control
 
             if (GetComponent<Health>().IsDead)
             {
-                mover.MoveTo(transform.position, 0.01f);
                 actionSchduler.CancelCurrentAction();
-
                 return;
             }
 
@@ -176,8 +176,10 @@ namespace RPG.Control
         {
             patrolSpeedFraction = speedFraction;
         }
+
         public void SetTransformDestination( Transform destination)
         {
+            isTransformDestinationChanged = true;
             transformDestination = destination;
         }
 
@@ -234,7 +236,12 @@ namespace RPG.Control
             }
 
             StandUpFromChairIfNeeded();
-            mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
+            if(isTransformDestinationChanged)
+            {
+                mover.StartMovementAction(transformDestination.position, patrolSpeedFraction);
+                isTransformDestinationChanged = false;
+            }
+
             return true;
         }
 
@@ -260,7 +267,10 @@ namespace RPG.Control
         {
             if (timeSinceLastSawPlayer < suspicionTime )
             {
+                DebugMessage("InteractWithSuspicsion cancelling current action");
                 actionSchduler.CancelCurrentAction();
+                isWayPointCycled = true;
+                isTransformDestinationChanged = true;
                 return true;
             }
             else
@@ -369,6 +379,7 @@ namespace RPG.Control
                 timeSinceLastSawPlayer = 0;
                 fighter.Attack(combatTargetGameObject);
                 AggrevateNearbyEnemies();
+                isTransformDestinationChanged = true;
                 return true;
             }
             else

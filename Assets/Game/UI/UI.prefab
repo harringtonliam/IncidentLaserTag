@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48340157, g: 0.5618899, b: 0.6698113, a: 0.7019608}
+  m_Color: {r: 0.39215687, g: 0.37254903, b: 0.4509804, a: 0.7019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -343,8 +343,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294920448
-  m_fontColor: {r: 0, g: 0.288177, b: 1, a: 1}
+    rgba: 4291741694
+  m_fontColor: {r: 0.99607843, g: 0.78039217, b: 0.80784315, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -480,8 +480,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4286476030
+  m_fontColor: {r: 0.99607843, g: 0.43137255, b: 0.49411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41176474, g: 0.4431373, b: 0.77647066, a: 1}
+  m_Color: {r: 0.39215687, g: 0.37254903, b: 0.4509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5921569, g: 0.8078432, b: 0.6509804, a: 1}
+  m_Color: {r: 0.19215687, g: 0.35686275, b: 0.18431373, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2374,6 +2374,7 @@ MonoBehaviour:
   compeleteMessage: Well done.  You completed the game.
   performanceAssessmentText: {fileID: 2079652322273319359}
   scoreRanges: {fileID: 11400000, guid: e8542c54d62084e40af5c3c2c2f3bba7, type: 2}
+  endOfGameGameOverDelay: 3
 --- !u!114 &9219621274225884843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3795,6 +3796,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238742263415328024, guid: f04681a167fc46148968bba63347b375,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238742263415328024, guid: f04681a167fc46148968bba63347b375,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.37254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238742263415328024, guid: f04681a167fc46148968bba63347b375,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 6492003118165012353, guid: f04681a167fc46148968bba63347b375,
         type: 3}

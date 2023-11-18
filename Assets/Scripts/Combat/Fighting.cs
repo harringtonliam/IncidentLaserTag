@@ -57,7 +57,13 @@ namespace RPG.Combat
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
-          
+
+            if (gameObjectHealth.IsDead)
+            {
+                mover.Cancel();
+                return;
+            }
+
             if (target != null)
             {
                 if (target.IsDead)
@@ -65,16 +71,10 @@ namespace RPG.Combat
                     return;
                 }
 
-                if(gameObjectHealth.IsDead)
-                {
-                    return;
-                }
-
-                if(mover != null) mover.MoveTo(target.transform.position, 1f);
+                if(mover != null) mover.MoveTo(target.transform.position, 1f, "fighting");
                 if (GetIsInRange(target.transform))
                 {
                     if(mover != null) mover.Cancel();
-                   
                     AttackBehaviour();
                 }
             }

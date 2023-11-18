@@ -131,6 +131,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule
       objectReference: {fileID: 0}
+    - target: {fileID: 5642633469721194639, guid: a406fdb087d78614eb0915fd94840d9b,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642633469721194639, guid: a406fdb087d78614eb0915fd94840d9b,
+        type: 3}
+      propertyPath: ReverseSpeedMultiplier
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a406fdb087d78614eb0915fd94840d9b, type: 3}
 --- !u!4 &3200432526387007525 stripped

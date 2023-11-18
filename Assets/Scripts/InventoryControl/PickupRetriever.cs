@@ -23,7 +23,7 @@ namespace RPG.InventoryControl
 
             if (target != null)
             {
-                mover.MoveTo(target.transform.position, 1f); ;
+                mover.MoveTo(target.transform.position, 1f, "pick up"); ;
                 if (GetIsInRange())
                 {
                     mover.Cancel();
