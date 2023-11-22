@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2369000306106279901, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2758477955692195164, guid: def8d0fcbf81ec54793ae6086f205e39,
         type: 3}
       propertyPath: defaultWeaponConfig
@@ -118,5 +123,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5846f1c3c4e5f1e42b95451831844600, type: 2}
+    - target: {fileID: 8909178474104481807, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178474104481807, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178474104481807, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909178474104481807, guid: def8d0fcbf81ec54793ae6086f205e39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def8d0fcbf81ec54793ae6086f205e39, type: 3}

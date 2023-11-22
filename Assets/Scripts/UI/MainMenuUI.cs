@@ -27,6 +27,11 @@ namespace  RPG.UI
         {
             sceneContoller.LoadGame();
         }
+
+        public void Quit()
+        {
+            Application.Quit();
+        }
     }
 
 }
